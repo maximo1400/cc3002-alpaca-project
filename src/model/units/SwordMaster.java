@@ -1,7 +1,9 @@
 package model.units;
 
-import model.items.IEquipableItem;
+import model.items.*;
 import model.map.Location;
+
+import java.awt.print.Book;
 
 /**
  * This class represents a <i>SwordMaster</i> type unit.
@@ -13,8 +15,7 @@ import model.map.Location;
  */
 public class SwordMaster extends AbstractUnit {
 
-  public SwordMaster(final int hitPoints, final int movement, final Location location,
-      IEquipableItem... items) {
+  public SwordMaster(final int hitPoints, final int movement, final Location location, IEquipableItem... items) {
     super(hitPoints, movement, location, 3, items);
   }
 
@@ -29,5 +30,60 @@ public class SwordMaster extends AbstractUnit {
     if (item instanceof SwordMaster) {
       equippedItem = item;
     }
+  }
+
+  @Override
+  public void equipAxe(Axe axe) {
+
+  }
+
+  @Override
+  public void equipBow(Bow bow) {
+
+  }
+
+  @Override
+  public void equipSpear(Spear spear) {
+
+  }
+
+  @Override
+  public void equipStaff(Staff staff) {
+
+  }
+
+  @Override
+  public void equipSword(Sword sword) {
+
+  }
+
+  @Override
+  public void equipBook(Book book) {
+
+  }
+
+  @Override
+  public void attack(IUnit unit) {
+
+  }
+
+  @Override
+  public boolean canAttack() {
+    return false;
+  }
+
+  @Override
+  public void giveItem(IUnit unit) {
+
+  }
+
+  @Override
+  public void receiveWeakAttack() {
+
+  }
+
+  @Override
+  public void receiveStrongAttack() {
+
   }
 }

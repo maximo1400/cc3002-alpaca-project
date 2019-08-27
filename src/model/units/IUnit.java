@@ -1,7 +1,9 @@
 package model.units;
 
+import java.awt.print.Book;
 import java.util.List;
-import model.items.IEquipableItem;
+
+import model.items.*;
 import model.map.Location;
 
 /**
@@ -22,6 +24,8 @@ public interface IUnit {
    *     the item to equip
    */
   void equipItem(IEquipableItem item);
+
+
 
   /**
    * @return hit points of the unit
@@ -65,4 +69,23 @@ public interface IUnit {
    * If the other location is out of this unit's movement range, the unit doesn't move.
    */
   void moveTo(Location targetLocation);
+
+
+
+  void equipAxe(Axe axe);
+  void equipBow(Bow bow);
+  void equipSpear(Spear spear);
+  void equipStaff(Staff staff);
+  void equipSword(Sword sword);
+  void equipBook(Book book);
+
+  void attack(IUnit unit);
+  boolean canAttack();
+  void giveItem(IUnit unit);
+
+  void receiveWeakAttack();
+  void receiveStrongAttack();
+
+
+
 }

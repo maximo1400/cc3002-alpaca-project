@@ -1,8 +1,9 @@
 package model.units;
 
-import model.items.IEquipableItem;
-import model.items.Spear;
+import model.items.*;
 import model.map.Location;
+
+import java.awt.print.Book;
 
 /**
  * A <i>Hero</i> is a special kind of unit, the player that defeats this unit wins the game.
@@ -38,5 +39,60 @@ public class Hero extends AbstractUnit {
     if (item instanceof Spear) {
       equippedItem = item;
     }
+  }
+
+  @Override
+  public void equipAxe(Axe axe) {
+
+  }
+
+  @Override
+  public void equipBow(Bow bow) {
+
+  }
+
+  @Override
+  public void equipSpear(Spear spear) {
+
+  }
+
+  @Override
+  public void equipStaff(Staff staff) {
+
+  }
+
+  @Override
+  public void equipSword(Sword sword) {
+
+  }
+
+  @Override
+  public void equipBook(Book book) {
+
+  }
+
+  @Override
+  public void attack(IUnit unit) {
+
+  }
+
+  @Override
+  public boolean canAttack() {
+    return false;
+  }
+
+  @Override
+  public void giveItem(IUnit unit) {
+
+  }
+
+  @Override
+  public void receiveWeakAttack() {
+
+  }
+
+  @Override
+  public void receiveStrongAttack() {
+
   }
 }
