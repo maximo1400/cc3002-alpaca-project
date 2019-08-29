@@ -1,6 +1,6 @@
 package model.items.books;
 
-import model.units.*;
+import model.units.IUnit;
 
 public class Light extends AbstractBook {
     /**
@@ -16,47 +16,12 @@ public class Light extends AbstractBook {
     }
 
     @Override
-    public void equipToAlpaca(Alpaca alpaca) {
-
-    }
-
-    @Override
-    public void equipToArcher(Archer archer) {
-
-    }
-
-    @Override
-    public void equipToCleric(Cleric cleric) {
-
-    }
-
-    @Override
-    public void equipToFighter(Fighter fighter) {
-
-    }
-
-    @Override
-    public void equipToHero(Hero hero) {
-
-    }
-
-    @Override
-    public void equipToSwordMaster(SwordMaster swordMaster) {
-
-    }
-
-    @Override
-    public boolean canUse(IUnit unit) {
-        return false;
-    }
-
-    @Override
     public void AttackUnit(IUnit unit) {
 
     }
 
     @Override
-    public void chooseAttackStrength(IUnit unit) {
-
+    public boolean isWeapon() {
+        return true;
     }
 }

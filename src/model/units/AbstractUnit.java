@@ -67,6 +67,11 @@ public abstract class AbstractUnit implements IUnit {
   }
 
   @Override
+  public void removeItem(IEquipableItem item){
+    this.items.remove(item);
+  }
+
+  @Override
   public Location getLocation() {
     return location;
   }
@@ -88,4 +93,50 @@ public abstract class AbstractUnit implements IUnit {
       setLocation(targetLocation);
     }
   }
+  @Override
+  public void equip(IEquipableItem item){
+    item.equipTo(this);
+  }
+  /**
+   * Sets the currently equipped item of this unit.
+   *
+   * @param item
+   *     the item to equip
+   */
+    @Override
+    public void equipItem(final IEquipableItem item) {
+        this.setEquippedItem(item);
+
+    }
+
+    @Override
+    public boolean canExchange(IUnit unit) {
+      return unit.canReceiveItem() && this.getLocation().distanceTo(unit.getLocation()) == 1;
+    }
+    @Override
+    public boolean canReceiveItem(){
+      return this.getItems().size()<=3;
+    }
+
+
+    @Override
+    public void exchange(IEquipableItem item, IUnit unit){
+      if(this.canExchange(unit)){
+        item.setOwner(unit);
+        this.removeItem(item);
+      }
+    }
+    @Override
+    public boolean canAttack(IUnit unit){
+      if(getEquippedItem()!=null && this.getCurrentHitPoints()>0 && unit.getCurrentHitPoints()>0)
+        return this.getEquippedItem().isWeapon();
+      return false;
+    }
+    @Override
+  public void attack(IUnit unit){
+      if(this.canAttack(unit))
+        this.getEquippedItem().AttackUnit(unit);
+      if(unit.canAttack(this))
+        unit.getEquippedItem().AttackUnit(this);
+    }
 }

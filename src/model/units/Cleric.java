@@ -1,7 +1,7 @@
 package model.units;
 
-import model.items.IEquipableItem;
-import model.items.Staff;
+import model.items.*;
+import model.items.books.IBook;
 import model.map.Location;
 
 /**
@@ -26,16 +26,46 @@ public class Cleric extends AbstractUnit {
     super(hitPoints, movement, location, 3, items);
   }
 
-  /**
-   * Sets the currently equipped item of this unit.
-   *
-   * @param item
-   *     the item to equip
-   */
+
   @Override
-  public void equipItem(final IEquipableItem item) {
-    if (item instanceof Staff) {
-      equippedItem = item;
-    }
+  public boolean canAttack() {
+    return false;
   }
+
+  @Override
+  public void giveItem(IUnit unit) {
+
+  }
+
+  @Override
+  public void equipSpear(Spear spear) {
+    // Method body intentionally left empty
+  }
+
+  @Override
+  public void equipSword(Sword sword) {
+    // Method body intentionally left empty
+  }
+
+  @Override
+  public void equipBook(IBook book) {
+    // Method body intentionally left empty
+  }
+
+  @Override
+  public void equipAxe(Axe axe) {
+    // Method body intentionally left empty
+  }
+
+  @Override
+  public void equipBow(Bow bow) {
+    // Method body intentionally left empty
+  }
+
+  @Override
+  public void equipStaff(Staff staff) {
+    this.equipItem(staff);
+  }
+
+
 }

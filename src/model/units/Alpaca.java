@@ -1,6 +1,7 @@
 package model.units;
 
-import model.items.IEquipableItem;
+import model.items.*;
+import model.items.books.IBook;
 import model.map.Location;
 
 /**
@@ -37,6 +38,53 @@ public class Alpaca extends AbstractUnit {
   @Override
   public void equipItem(final IEquipableItem item) {
     // Method body intentionally left empty
+  }
+
+
+
+  @Override
+  public boolean canAttack(IUnit unit) {
+    return false;
+  }
+
+  @Override
+  public void giveItem(IUnit unit) {
+
+  }
+
+  @Override
+  public void equipSpear(Spear spear) {
+    // Method body intentionally left empty
+  }
+
+  @Override
+  public void equipSword(Sword sword) {
+    // Method body intentionally left empty
+  }
+
+  @Override
+  public void equipBook(IBook book) {
+    // Method body intentionally left empty
+  }
+
+  @Override
+  public void equipAxe(Axe axe) {
+    // Method body intentionally left empty
+  }
+
+  @Override
+  public void equipBow(Bow bow) {
+    // Method body intentionally left empty
+  }
+
+  @Override
+  public void equipStaff(Staff staff) {
+    // Method body intentionally left empty
+  }
+
+  @Override
+  public boolean canReceiveItem() {
+    return true;
   }
 
 }

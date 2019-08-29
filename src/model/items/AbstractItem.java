@@ -36,14 +36,13 @@ public abstract class AbstractItem implements IEquipableItem {
   }
 
   @Override
-  public void equipTo(final IUnit unit) {
-    unit.setEquippedItem(this);
-    owner = unit;
+  public IUnit getOwner() {
+    return owner;
   }
 
   @Override
-  public IUnit getOwner() {
-    return owner;
+  public void setOwner(IUnit unit){
+      owner=unit;
   }
 
   @Override
@@ -65,4 +64,5 @@ public abstract class AbstractItem implements IEquipableItem {
   public int getMaxRange() {
     return maxRange;
   }
+
 }

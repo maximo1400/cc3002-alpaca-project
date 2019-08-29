@@ -4,6 +4,8 @@ import java.awt.print.Book;
 import java.util.List;
 
 import model.items.*;
+import model.items.books.AbstractBook;
+import model.items.books.IBook;
 import model.map.Location;
 
 /**
@@ -72,20 +74,28 @@ public interface IUnit {
 
 
 
-  void equipAxe(Axe axe);
-  void equipBow(Bow bow);
-  void equipSpear(Spear spear);
-  void equipStaff(Staff staff);
-  void equipSword(Sword sword);
-  void equipBook(Book book);
+
 
   void attack(IUnit unit);
-  boolean canAttack();
+  boolean canAttack(IUnit unit);
   void giveItem(IUnit unit);
+  boolean canExchange(IUnit unit);
+  void exchange(IEquipableItem item, IUnit unit);
+  void removeItem(IEquipableItem item);
 
-  void receiveWeakAttack();
-  void receiveStrongAttack();
+  void equip(IEquipableItem item);
 
+  void equipSpear(Spear spear);
 
+  void equipSword(Sword sword);
 
+  void equipBook(IBook book);
+
+  void equipAxe(Axe axe);
+
+  void equipBow(Bow bow);
+
+  void equipStaff(Staff staff);
+
+  boolean canReceiveItem();
 }

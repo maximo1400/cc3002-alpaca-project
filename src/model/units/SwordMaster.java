@@ -1,6 +1,7 @@
 package model.units;
 
 import model.items.*;
+import model.items.books.IBook;
 import model.map.Location;
 
 import java.awt.print.Book;
@@ -19,57 +20,37 @@ public class SwordMaster extends AbstractUnit {
     super(hitPoints, movement, location, 3, items);
   }
 
-  /**
-   * Sets the currently equipped item of this unit.
-   *
-   * @param item
-   *     the item to equip
-   */
-  @Override
-  public void equipItem(final IEquipableItem item) {
-    if (item instanceof SwordMaster) {
-      equippedItem = item;
-    }
-  }
 
   @Override
   public void equipAxe(Axe axe) {
-
+    // Method body intentionally left empty
   }
 
   @Override
   public void equipBow(Bow bow) {
+    // Method body intentionally left empty
 
   }
 
   @Override
   public void equipSpear(Spear spear) {
+    // Method body intentionally left empty
 
   }
 
   @Override
   public void equipStaff(Staff staff) {
-
+// Method body intentionally left empty
   }
 
   @Override
   public void equipSword(Sword sword) {
-
+    this.equipItem(sword);
   }
 
   @Override
-  public void equipBook(Book book) {
-
-  }
-
-  @Override
-  public void attack(IUnit unit) {
-
-  }
-
-  @Override
-  public boolean canAttack() {
-    return false;
+  public void equipBook(IBook book) {
+// Method body intentionally left empty
   }
 
   @Override
@@ -77,13 +58,4 @@ public class SwordMaster extends AbstractUnit {
 
   }
 
-  @Override
-  public void receiveWeakAttack() {
-
-  }
-
-  @Override
-  public void receiveStrongAttack() {
-
-  }
 }

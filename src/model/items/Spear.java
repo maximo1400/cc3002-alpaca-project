@@ -1,5 +1,7 @@
 package model.items;
 
+import model.units.*;
+
 /**
  * This class represents a <i>spear</i>.
  * <p>
@@ -25,4 +27,31 @@ public class Spear extends AbstractItem {
   public Spear(final String name, final int power, final int minRange, final int maxRange) {
     super(name, power, minRange, maxRange);
   }
+
+
+  /**
+   * Equips this item to a unit.
+   *
+   * @param unit the unit that will be quipped with the item
+   */
+  @Override
+  public void equipTo(IUnit unit) {
+    unit.equipSpear(this);
+  }
+
+  @Override
+  public boolean canUse(IUnit unit) {
+    return false;
+  }
+
+  @Override
+  public void AttackUnit(IUnit unit) {
+
+  }
+
+  @Override
+  public boolean isWeapon() {
+    return true;
+  }
+
 }

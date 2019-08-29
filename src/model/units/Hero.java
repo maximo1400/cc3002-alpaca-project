@@ -1,6 +1,8 @@
 package model.units;
 
 import model.items.*;
+import model.items.books.AbstractBook;
+import model.items.books.IBook;
 import model.map.Location;
 
 import java.awt.print.Book;
@@ -28,71 +30,43 @@ public class Hero extends AbstractUnit {
     super(hitPoints, movement, location, 3, items);
   }
 
-  /**
-   * Sets the currently equipped item of this unit.
-   *
-   * @param item
-   *     the item to equip
-   */
-  @Override
-  public void equipItem(final IEquipableItem item) {
-    if (item instanceof Spear) {
-      equippedItem = item;
-    }
-  }
 
   @Override
   public void equipAxe(Axe axe) {
-
+    // Method body intentionally left empty
   }
 
   @Override
   public void equipBow(Bow bow) {
-
+    // Method body intentionally left empty
   }
 
   @Override
   public void equipSpear(Spear spear) {
-
+    this.equipItem(spear);
   }
 
   @Override
   public void equipStaff(Staff staff) {
-
+    // Method body intentionally left empty
   }
+
+
 
   @Override
   public void equipSword(Sword sword) {
-
+    // Method body intentionally left empty
   }
 
   @Override
-  public void equipBook(Book book) {
-
+  public void equipBook(IBook book) {
+    // Method body intentionally left empty
   }
 
-  @Override
-  public void attack(IUnit unit) {
-
-  }
-
-  @Override
-  public boolean canAttack() {
-    return false;
-  }
 
   @Override
   public void giveItem(IUnit unit) {
 
   }
 
-  @Override
-  public void receiveWeakAttack() {
-
-  }
-
-  @Override
-  public void receiveStrongAttack() {
-
-  }
 }

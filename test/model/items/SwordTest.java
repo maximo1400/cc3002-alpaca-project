@@ -3,6 +3,7 @@ package model.items;
 import model.map.Location;
 import model.units.IUnit;
 import model.units.SwordMaster;
+import org.junit.jupiter.api.BeforeEach;
 
 /**
  * Test set for swords
@@ -19,6 +20,7 @@ public class SwordTest extends AbstractTestItem {
   /**
    * Sets which item is going to be tested
    */
+  @BeforeEach
   @Override
   public void setTestItem() {
     expectedName = "Common sword";

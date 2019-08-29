@@ -2,7 +2,7 @@ package model.units;
 
 import model.items.*;
 import model.map.Location;
-
+import model.items.books.*;
 import java.awt.print.Book;
 
 /**
@@ -15,61 +15,40 @@ public class Sorcerer extends AbstractUnit{
      * @param hitPoints the maximum amount of damage a unit can sustain
      * @param movement  the number of panels a unit can move
      * @param location  the current position of this unit on the map
-     * @param maxItems
      * @param items
      */
-    protected Sorcerer(int hitPoints, int movement, Location location, int maxItems, IEquipableItem... items) {
+    protected Sorcerer(final int hitPoints, final int movement, final Location location, IEquipableItem... items) {
         super(hitPoints, movement, location, 3, items);
-    }
-
-    /**
-     * Sets the currently equipped item of this unit.
-     *
-     * @param item the item to equip
-     */
-    @Override
-    public void equipItem(IEquipableItem item) {
-
     }
 
     @Override
     public void equipAxe(Axe axe) {
-
+        // Method body intentionally left empty
     }
 
     @Override
     public void equipBow(Bow bow) {
-
+        // Method body intentionally left empty
     }
 
     @Override
     public void equipSpear(Spear spear) {
-
+        // Method body intentionally left empty
     }
 
     @Override
     public void equipStaff(Staff staff) {
-
+        // Method body intentionally left empty
     }
 
     @Override
     public void equipSword(Sword sword) {
-
+        // Method body intentionally left empty
     }
 
     @Override
-    public void equipBook(Book book) {
-
-    }
-
-    @Override
-    public void attack(IUnit unit) {
-
-    }
-
-    @Override
-    public boolean canAttack() {
-        return false;
+    public void equipBook(IBook book) {
+        this.equipItem(book);
     }
 
     @Override
@@ -77,13 +56,4 @@ public class Sorcerer extends AbstractUnit{
 
     }
 
-    @Override
-    public void receiveWeakAttack() {
-
-    }
-
-    @Override
-    public void receiveStrongAttack() {
-
-    }
 }

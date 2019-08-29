@@ -25,6 +25,10 @@ public interface IEquipableItem {
    * @return the unit that has currently equipped this item
    */
   IUnit getOwner();
+  /**
+   * Sets the unit that has currently equipped this item
+   */
+  void setOwner(IUnit unit);
 
   /**
    * @return the name of the item
@@ -46,15 +50,9 @@ public interface IEquipableItem {
    */
   int getMaxRange();
 
-  void equipToAlpaca(Alpaca alpaca);
-  void equipToArcher(Archer archer);
-  void equipToCleric(Cleric cleric);
-  void equipToFighter(Fighter fighter);
-  void equipToHero(Hero hero);
-  void equipToSwordMaster(SwordMaster swordMaster);
 
   boolean canUse(IUnit unit);
   void AttackUnit(IUnit unit);
-  void chooseAttackStrength(IUnit unit);
 
+  boolean isWeapon();
 }

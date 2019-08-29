@@ -27,8 +27,7 @@ class SorcererTest extends  AbstractTestUnit{
     public void equipSwordTest() {
         assertNull(sorcerer.getEquippedItem());
         sorcerer.equipItem(sword);
-        assertEquals(sword, sorcerer.getEquippedItem());
+        assertNotEquals(sword, sorcerer.getEquippedItem());
     }
 }
 
-}

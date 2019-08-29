@@ -1,5 +1,7 @@
 package model.items;
 
+import model.units.*;
+
 /**
  * @author Ignacio Slater Muñoz
  * @since
@@ -26,4 +28,25 @@ public class Bow extends AbstractItem {
     this.minRange = Math.max(minRange, 2);
     this.maxRange = Math.max(maxRange, this.minRange);
   }
+
+  @Override
+  public void equipTo(IUnit unit) {
+    unit.equipBow(this);
+  }
+
+  @Override
+  public boolean canUse(IUnit unit) {
+    return false;
+  }
+
+  @Override
+  public void AttackUnit(IUnit unit) {
+
+  }
+
+  @Override
+  public boolean isWeapon() {
+    return true;
+  }
+
 }

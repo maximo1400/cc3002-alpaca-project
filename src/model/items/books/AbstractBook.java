@@ -1,6 +1,7 @@
 package model.items.books;
 
 import model.items.AbstractItem;
+import model.units.*;
 
 public abstract class AbstractBook extends AbstractItem implements IBook {
     /**
@@ -14,4 +15,16 @@ public abstract class AbstractBook extends AbstractItem implements IBook {
     public AbstractBook(String name, int power, int minRange, int maxRange) {
         super(name, power, minRange, maxRange);
     }
+
+    @Override
+    public void equipTo(IUnit unit) {
+        unit.equipBook(this);
+    }
+
+    @Override
+    public boolean canUse(IUnit unit) {
+        return false;
+    }
+
+
 }
