@@ -28,7 +28,7 @@ public class Sword extends AbstractItem {
     super(name, power, minRange, maxRange);
   }
   @Override
-  public void equipTo(IUnit unit) {
+  public void equip(IUnit unit) {
     unit.equipSword(this);
   }
 

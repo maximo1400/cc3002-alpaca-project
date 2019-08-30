@@ -19,7 +19,7 @@ public interface IEquipableItem {
    * @param unit
    *     the unit that will be quipped with the item
    */
-  void equipTo(IUnit unit);
+  void equip(IUnit unit);
 
   /**
    * @return the unit that has currently equipped this item

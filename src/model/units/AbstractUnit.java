@@ -94,20 +94,9 @@ public abstract class AbstractUnit implements IUnit {
     }
   }
   @Override
-  public void equip(IEquipableItem item){
-    item.equipTo(this);
+  public void equipItem(IEquipableItem item){
+    item.equip(this);
   }
-  /**
-   * Sets the currently equipped item of this unit.
-   *
-   * @param item
-   *     the item to equip
-   */
-    @Override
-    public void equipItem(final IEquipableItem item) {
-        this.setEquippedItem(item);
-
-    }
 
     @Override
     public boolean canExchange(IUnit unit) {

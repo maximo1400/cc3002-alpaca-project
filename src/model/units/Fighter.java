@@ -20,11 +20,6 @@ public class Fighter extends AbstractUnit {
 
 
   @Override
-  public void giveItem(IUnit unit) {
-
-  }
-
-  @Override
   public void equipSpear(Spear spear) {
     // Method body intentionally left empty
   }
@@ -41,7 +36,8 @@ public class Fighter extends AbstractUnit {
 
   @Override
   public void equipAxe(Axe axe) {
-    this.equipItem(axe);
+    this.setEquippedItem(axe);
+    axe.setOwner(this);
   }
 
   @Override

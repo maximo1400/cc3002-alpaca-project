@@ -1,11 +1,8 @@
 package model.units;
 
 import model.items.*;
-import model.items.books.AbstractBook;
 import model.items.books.IBook;
 import model.map.Location;
-
-import java.awt.print.Book;
 
 /**
  * A <i>Hero</i> is a special kind of unit, the player that defeats this unit wins the game.
@@ -43,7 +40,8 @@ public class Hero extends AbstractUnit {
 
   @Override
   public void equipSpear(Spear spear) {
-    this.equipItem(spear);
+    this.setEquippedItem(spear);
+    spear.setOwner(this);
   }
 
   @Override
@@ -63,10 +61,5 @@ public class Hero extends AbstractUnit {
     // Method body intentionally left empty
   }
 
-
-  @Override
-  public void giveItem(IUnit unit) {
-
-  }
 
 }

@@ -1,10 +1,8 @@
 package model.units;
 
-import java.awt.print.Book;
 import java.util.List;
 
 import model.items.*;
-import model.items.books.AbstractBook;
 import model.items.books.IBook;
 import model.map.Location;
 
@@ -25,7 +23,7 @@ public interface IUnit {
    * @param item
    *     the item to equip
    */
-  void equipItem(IEquipableItem item);
+  void setEquippedItem(IEquipableItem item);
 
 
 
@@ -44,11 +42,6 @@ public interface IUnit {
    */
   IEquipableItem getEquippedItem();
 
-  /**
-   * @param item
-   *     the item to be equipped
-   */
-  void setEquippedItem(IEquipableItem item);
 
   /**
    * @return the current location of the unit
@@ -78,12 +71,12 @@ public interface IUnit {
 
   void attack(IUnit unit);
   boolean canAttack(IUnit unit);
-  void giveItem(IUnit unit);
+
   boolean canExchange(IUnit unit);
   void exchange(IEquipableItem item, IUnit unit);
   void removeItem(IEquipableItem item);
 
-  void equip(IEquipableItem item);
+  void equipItem(IEquipableItem item);
 
   void equipSpear(Spear spear);
 

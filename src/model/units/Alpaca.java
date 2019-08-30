@@ -36,7 +36,7 @@ public class Alpaca extends AbstractUnit {
    * The <i>Alpaca</i> cannot equip any item.
    */
   @Override
-  public void equipItem(final IEquipableItem item) {
+  public void setEquippedItem(final IEquipableItem item) {
     // Method body intentionally left empty
   }
 
@@ -45,11 +45,6 @@ public class Alpaca extends AbstractUnit {
   @Override
   public boolean canAttack(IUnit unit) {
     return false;
-  }
-
-  @Override
-  public void giveItem(IUnit unit) {
-
   }
 
   @Override

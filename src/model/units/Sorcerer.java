@@ -3,7 +3,6 @@ package model.units;
 import model.items.*;
 import model.map.Location;
 import model.items.books.*;
-import java.awt.print.Book;
 
 /**
  *
@@ -48,12 +47,8 @@ public class Sorcerer extends AbstractUnit{
 
     @Override
     public void equipBook(IBook book) {
-        this.equipItem(book);
-    }
-
-    @Override
-    public void giveItem(IUnit unit) {
-
+        this.setEquippedItem(book);
+        book.setOwner(this);
     }
 
 }

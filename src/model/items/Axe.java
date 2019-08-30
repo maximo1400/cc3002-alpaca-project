@@ -29,8 +29,9 @@ public class Axe extends AbstractItem {
   }
 
   @Override
-  public void equipTo(IUnit unit) {
+  public void equip(IUnit unit) {
     unit.equipAxe(this);
+
   }
 
   @Override

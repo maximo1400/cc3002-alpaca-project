@@ -28,13 +28,8 @@ public class Cleric extends AbstractUnit {
 
 
   @Override
-  public boolean canAttack() {
+  public boolean canAttack(IUnit unit) {
     return false;
-  }
-
-  @Override
-  public void giveItem(IUnit unit) {
-
   }
 
   @Override
@@ -64,7 +59,8 @@ public class Cleric extends AbstractUnit {
 
   @Override
   public void equipStaff(Staff staff) {
-    this.equipItem(staff);
+    this.setEquippedItem(staff);
+    staff.setOwner(this);
   }
 
 

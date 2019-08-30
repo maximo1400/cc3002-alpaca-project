@@ -4,8 +4,6 @@ import model.items.*;
 import model.items.books.IBook;
 import model.map.Location;
 
-import java.awt.print.Book;
-
 /**
  * This class represents a <i>SwordMaster</i> type unit.
  * <p>
@@ -45,17 +43,13 @@ public class SwordMaster extends AbstractUnit {
 
   @Override
   public void equipSword(Sword sword) {
-    this.equipItem(sword);
+    this.setEquippedItem(sword);
+    sword.setOwner(this);
   }
 
   @Override
   public void equipBook(IBook book) {
 // Method body intentionally left empty
-  }
-
-  @Override
-  public void giveItem(IUnit unit) {
-
   }
 
 }

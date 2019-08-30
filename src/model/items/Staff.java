@@ -29,7 +29,7 @@ public class Staff extends AbstractItem {
   }
 
   @Override
-  public void equipTo(IUnit unit) {
+  public void equip(IUnit unit) {
     unit.equipStaff(this);
   }
 

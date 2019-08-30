@@ -35,8 +35,9 @@ public class Spear extends AbstractItem {
    * @param unit the unit that will be quipped with the item
    */
   @Override
-  public void equipTo(IUnit unit) {
+  public void equip(IUnit unit) {
     unit.equipSpear(this);
+
   }
 
   @Override

@@ -32,12 +32,6 @@ public class Archer extends AbstractUnit {
   }
 
 
-
-    @Override
-    public void giveItem(IUnit unit) {
-
-    }
-
   @Override
   public void equipSpear(Spear spear) {
     // Method body intentionally left empty
@@ -60,7 +54,8 @@ public class Archer extends AbstractUnit {
 
   @Override
   public void equipBow(Bow bow) {
-    this.equipItem(bow);
+    this.setEquippedItem(bow);
+    bow.setOwner(this);
   }
 
   @Override

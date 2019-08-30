@@ -17,7 +17,7 @@ public abstract class AbstractBook extends AbstractItem implements IBook {
     }
 
     @Override
-    public void equipTo(IUnit unit) {
+    public void equip(IUnit unit) {
         unit.equipBook(this);
     }
 
