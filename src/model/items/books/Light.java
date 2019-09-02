@@ -17,7 +17,7 @@ public class Light extends AbstractBook {
 
     @Override
     public void AttackUnit(IUnit unit) {
-
+        unit.receiveLightAttack(this);
     }
 
     @Override

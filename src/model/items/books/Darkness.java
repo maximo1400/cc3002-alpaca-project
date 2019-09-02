@@ -18,7 +18,7 @@ public class Darkness extends AbstractBook {
 
     @Override
     public void AttackUnit(IUnit unit) {
-
+        unit.receiveDarknessAttack(this);
     }
 
     @Override

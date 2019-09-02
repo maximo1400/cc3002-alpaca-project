@@ -39,16 +39,55 @@ public class Sorcerer extends AbstractUnit{
     public void equipStaff(Staff staff) {
         // Method body intentionally left empty
     }
+    @Override
+    public void equipBook(IBook book) {
+        this.setEquippedItem(book);
+        book.setOwner(this);
+    }
+
+
+
+
+    @Override
+    public void receiveAnimaAttack(Anima anima) {
+
+    }
+
+    @Override
+    public void receiveDarknessAttack(Darkness darkness) {
+
+    }
+
+    @Override
+    public void receiveLightAttack(Light light) {
+
+    }
+
+    @Override
+    public void receiveAxeAttack(Axe axe) {
+
+    }
+
+    @Override
+    public void receiveBowAttack(Bow bow) {
+
+    }
+
+    @Override
+    public void receiveSpearAttack(Spear spear) {
+
+    }
+
+    @Override
+    public void receiveSwordAttack(Sword sword) {
+
+    }
 
     @Override
     public void equipSword(Sword sword) {
         // Method body intentionally left empty
     }
 
-    @Override
-    public void equipBook(IBook book) {
-        this.setEquippedItem(book);
-        book.setOwner(this);
-    }
+
 
 }

@@ -41,7 +41,7 @@ public class Axe extends AbstractItem {
 
   @Override
   public void AttackUnit(IUnit unit) {
-
+    unit.receiveAxeAttack(this);
   }
 
   @Override

@@ -3,7 +3,10 @@ package model.units;
 import java.util.List;
 
 import model.items.*;
+import model.items.books.Anima;
+import model.items.books.Darkness;
 import model.items.books.IBook;
+import model.items.books.Light;
 import model.map.Location;
 
 /**
@@ -31,6 +34,8 @@ public interface IUnit {
    * @return hit points of the unit
    */
   int getCurrentHitPoints();
+
+  void setCurrentHitPoints(int life);
 
   /**
    * @return the items carried by this unit
@@ -91,4 +96,24 @@ public interface IUnit {
   void equipStaff(Staff staff);
 
   boolean canReceiveItem();
+
+  void receiveAnimaAttack(Anima anima);
+
+  void receiveDarknessAttack(Darkness darkness);
+
+  void receiveLightAttack(Light light);
+
+  void receiveAxeAttack(Axe axe);
+
+  void receiveBowAttack(Bow bow);
+
+  void receiveSpearAttack(Spear spear);
+
+  void receiveStaffAttack(Staff staff);
+
+  void receiveSwordAttack(Sword sword);
+
+  void receiveStrongAttack(IEquipableItem item);
+  void receiveNormalAttack(IEquipableItem item);
+  void receiveWeakAttack(IEquipableItem item);
 }

@@ -1,11 +1,13 @@
 package model.units;
 
+import static java.lang.Math.abs;
 import static java.lang.Math.min;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import model.items.IEquipableItem;
+import model.items.Staff;
 import model.map.Location;
 
 /**
@@ -21,7 +23,8 @@ import model.map.Location;
 public abstract class AbstractUnit implements IUnit {
 
   protected final List<IEquipableItem> items = new ArrayList<>();
-  private final int currentHitPoints;
+  private final int hitPoints;
+  private  int currentHitPoints;
   private final int movement;
   protected IEquipableItem equippedItem;
   private Location location;
@@ -41,6 +44,7 @@ public abstract class AbstractUnit implements IUnit {
   protected AbstractUnit(final int hitPoints, final int movement,
       final Location location, final int maxItems, final IEquipableItem... items) {
     this.currentHitPoints = hitPoints;
+    this.hitPoints=hitPoints;
     this.movement = movement;
     this.location = location;
     this.items.addAll(Arrays.asList(items).subList(0, min(maxItems, items.length)));
@@ -49,6 +53,11 @@ public abstract class AbstractUnit implements IUnit {
   @Override
   public int getCurrentHitPoints() {
     return currentHitPoints;
+  }
+
+  @Override
+  public void setCurrentHitPoints(int life) {
+     this.currentHitPoints=life;
   }
 
   @Override
@@ -95,7 +104,8 @@ public abstract class AbstractUnit implements IUnit {
   }
   @Override
   public void equipItem(IEquipableItem item){
-    item.equip(this);
+    if (item.getOwner().equals(this))
+      item.equip(this);
   }
 
     @Override
@@ -115,17 +125,43 @@ public abstract class AbstractUnit implements IUnit {
         this.removeItem(item);
       }
     }
-    @Override
-    public boolean canAttack(IUnit unit){
-      if(getEquippedItem()!=null && this.getCurrentHitPoints()>0 && unit.getCurrentHitPoints()>0)
-        return this.getEquippedItem().isWeapon();
-      return false;
-    }
+  @Override
+  public boolean canAttack(IUnit unit){
+    Location victim = unit.getLocation();
+    double distance= StrictMath.abs(victim.distanceTo(this.getLocation()));
+    if(getEquippedItem()!=null && this.getCurrentHitPoints()>0 && unit.getCurrentHitPoints()>0 &&
+            this.getEquippedItem().getMaxRange()>=distance && this.getEquippedItem().getMinRange()<=distance)
+      return this.getEquippedItem().isWeapon();
+    return false;
+  }
     @Override
   public void attack(IUnit unit){
-      if(this.canAttack(unit))
+      if(this.canAttack(unit)) {
         this.getEquippedItem().AttackUnit(unit);
-      if(unit.canAttack(this))
-        unit.getEquippedItem().AttackUnit(this);
+        if (unit.canAttack(this))
+          unit.getEquippedItem().AttackUnit(this);
+      }
     }
+
+    @Override
+  public void receiveStrongAttack(IEquipableItem item){
+    int life = (int) (this.getCurrentHitPoints()-item.getPower()*1.5);
+    this.setCurrentHitPoints(life);
+    }
+
+  @Override
+  public void receiveNormalAttack(IEquipableItem item){
+    int life = this.getCurrentHitPoints()-item.getPower();
+    this.setCurrentHitPoints(life);
+  }
+
+  @Override
+  public void receiveWeakAttack(IEquipableItem item){
+    int life =this.getCurrentHitPoints()-(item.getPower()-20);
+    this.setCurrentHitPoints(life);
+  }
+  @Override
+  public void receiveStaffAttack(Staff staff) {
+    // Method body intentionally left empty
+  }
 }

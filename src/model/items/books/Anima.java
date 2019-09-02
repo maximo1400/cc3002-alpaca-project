@@ -17,7 +17,7 @@ public class Anima extends AbstractBook{
 
     @Override
     public void AttackUnit(IUnit unit) {
-
+        unit.receiveAnimaAttack(this);
     }
 
     @Override

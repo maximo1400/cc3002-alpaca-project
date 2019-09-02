@@ -28,7 +28,6 @@ public class Bow extends AbstractItem {
     this.minRange = Math.max(minRange, 2);
     this.maxRange = Math.max(maxRange, this.minRange);
   }
-
   @Override
   public void equip(IUnit unit) {
     unit.equipBow(this);
@@ -40,9 +39,11 @@ public class Bow extends AbstractItem {
     return false;
   }
 
+
+
   @Override
   public void AttackUnit(IUnit unit) {
-
+    unit.receiveBowAttack(this);
   }
 
   @Override

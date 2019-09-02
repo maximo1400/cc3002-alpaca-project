@@ -4,6 +4,8 @@ import model.items.*;
 import model.items.books.IBook;
 import model.map.Location;
 
+import static java.lang.StrictMath.abs;
+
 /**
  * This class represents an <i>Archer</i> type unit.
  * <p>
@@ -62,6 +64,7 @@ public class Archer extends AbstractUnit {
   public void equipStaff(Staff staff) {
     // Method body intentionally left empty
   }
+
 
 
 

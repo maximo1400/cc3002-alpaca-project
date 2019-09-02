@@ -1,7 +1,10 @@
 package model.units;
 
 import model.items.*;
+import model.items.books.Anima;
+import model.items.books.Darkness;
 import model.items.books.IBook;
+import model.items.books.Light;
 import model.map.Location;
 
 /**
@@ -41,7 +44,44 @@ public class SwordMaster extends AbstractUnit {
 // Method body intentionally left empty
   }
 
-  @Override
+    @Override
+    public void receiveAnimaAttack(Anima anima) {
+        this.receiveStrongAttack(anima);
+    }
+
+    @Override
+    public void receiveDarknessAttack(Darkness darkness) {
+        this.receiveStrongAttack(darkness);
+    }
+
+    @Override
+    public void receiveLightAttack(Light light) {
+        this.receiveStrongAttack(light);
+    }
+
+    @Override
+    public void receiveAxeAttack(Axe axe) {
+        this.receiveWeakAttack(axe);
+    }
+
+    @Override
+    public void receiveBowAttack(Bow bow) {
+        this.receiveNormalAttack(bow);
+    }
+
+    @Override
+    public void receiveSpearAttack(Spear spear) {
+        this.receiveStrongAttack(spear);
+    }
+
+
+
+    @Override
+    public void receiveSwordAttack(Sword sword) {
+        this.receiveNormalAttack(sword);
+    }
+
+    @Override
   public void equipSword(Sword sword) {
     this.setEquippedItem(sword);
     sword.setOwner(this);

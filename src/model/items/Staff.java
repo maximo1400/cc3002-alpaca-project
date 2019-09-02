@@ -40,7 +40,7 @@ public class Staff extends AbstractItem {
 
   @Override
   public void AttackUnit(IUnit unit) {
-
+    unit.receiveStaffAttack(this);
   }
 
   @Override

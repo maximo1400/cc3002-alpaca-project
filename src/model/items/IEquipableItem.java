@@ -55,4 +55,14 @@ public interface IEquipableItem {
   void AttackUnit(IUnit unit);
 
   boolean isWeapon();
+
+//  void doAnimaAttack(IUnit unit);
+//  void doDarknessAttack(IUnit unit);
+//  void doLightAttack(IUnit unit);
+//  void doAxeAttack(IUnit unit);
+//  void doBowAttack(IUnit unit);
+//  void doSpearAttack(IUnit unit);
+//  void doStaffAttack(IUnit unit);
+//  void doSwordAttack(IUnit unit);
+
 }

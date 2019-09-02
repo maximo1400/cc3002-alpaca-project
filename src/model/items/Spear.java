@@ -47,7 +47,7 @@ public class Spear extends AbstractItem {
 
   @Override
   public void AttackUnit(IUnit unit) {
-
+    unit.receiveSpearAttack(this);
   }
 
   @Override

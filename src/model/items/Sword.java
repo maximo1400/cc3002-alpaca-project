@@ -40,7 +40,7 @@ public class Sword extends AbstractItem {
 
   @Override
   public void AttackUnit(IUnit unit) {
-
+    unit.receiveSwordAttack(this);
   }
 
   @Override
