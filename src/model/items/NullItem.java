@@ -5,9 +5,10 @@ import model.units.IUnit;
 public class NullItem extends AbstractItem {
     /**
      * Constructor for a default item without any special behaviour.
+
      */
     public NullItem() {
-        super("Null Object", 0, 0, 0);
+        super("Null Item", 0, 0, 0);
     }
 
     /**
