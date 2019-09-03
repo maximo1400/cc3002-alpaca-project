@@ -5,6 +5,9 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import model.items.*;
+import model.items.books.Anima;
+import model.items.books.Darkness;
+import model.items.books.Light;
 import model.map.Field;
 import model.map.Location;
 import org.junit.jupiter.api.BeforeEach;
@@ -23,6 +26,10 @@ public abstract class AbstractTestUnit implements ITestUnit {
   protected Sword sword;
   protected Staff staff;
   protected Spear spear;
+  protected Anima anima;
+  protected Darkness darkness;
+  protected Light light;
+  protected NullItem nullItem;
 
   @Override
   public void setTargetAlpaca() {
@@ -67,6 +74,10 @@ public abstract class AbstractTestUnit implements ITestUnit {
     this.spear = new Spear("Spear", 10, 1, 2);
     this.staff = new Staff("Staff", 10, 1, 2);
     this.bow = new Bow("Bow", 10, 2, 3);
+    this.anima = new Anima("AnimaBook", 10, 1, 3);
+    this.darkness = new Darkness("DarknessBook", 10, 1, 3);
+    this.light = new Light("LightBook", 10, 1, 3);
+    this.nullItem= new NullItem();
   }
 
   /**
@@ -87,15 +98,10 @@ public abstract class AbstractTestUnit implements ITestUnit {
   @Override
   public abstract IUnit getTestUnit();
 
-  /**
-   * Checks if the axe is equipped correctly to the unit
-   */
-  @Override
-  @Test
-  public void equipAxeTest() {
-    assertNull(getTestUnit().getEquippedItem());
-    checkEquippedItem(getAxe());
-  }
+//  /**
+//   * Checks if the axe is equipped correctly to the unit
+//   */
+//
 
   /**
    * Tries to equip a weapon to the alpaca and verifies that it was not equipped
@@ -105,9 +111,27 @@ public abstract class AbstractTestUnit implements ITestUnit {
    */
   @Override
   public void checkEquippedItem(IEquipableItem item) {
-    assertNull(getTestUnit().getEquippedItem());
+    assertEquals(getTestUnit().getEquippedItem().getClass(),nullItem.getClass());
     getTestUnit().equipItem(item);
-    assertNull(getTestUnit().getEquippedItem());
+    assertEquals(getTestUnit().getEquippedItem().getClass(),nullItem.getClass());
+    item.setOwner(getTestUnit());
+    getTestUnit().getItems().add(item);
+    getTestUnit().equipItem(item);
+    assertEquals(getTestUnit().getEquippedItem().getClass(),nullItem.getClass());
+    item.setOwner(null);
+    getTestUnit().setEquippedItem(nullItem);
+  }
+  @Override
+  public void checkWrongEquippedItem(IEquipableItem item){
+    assertEquals(getTestUnit().getEquippedItem().getClass(),nullItem.getClass());
+    getTestUnit().equipItem(item);
+    assertEquals(getTestUnit().getEquippedItem().getClass(),nullItem.getClass());
+    item.setOwner(getTestUnit());
+    getTestUnit().getItems().add(item);
+    getTestUnit().equipItem(item);
+    assertEquals(getTestUnit().getEquippedItem().getClass(),nullItem.getClass());
+    item.setOwner(null);
+    getTestUnit().setEquippedItem(nullItem);
   }
 
   /**
@@ -118,24 +142,12 @@ public abstract class AbstractTestUnit implements ITestUnit {
     return axe;
   }
 
-  @Override
-  @Test
-  public void equipSwordTest() {
-    checkEquippedItem(getSword());
-  }
-
   /**
    * @return the test sword
    */
   @Override
   public Sword getSword() {
     return sword;
-  }
-
-  @Override
-  @Test
-  public void equipSpearTest() {
-    checkEquippedItem(getSpear());
   }
 
   /**
@@ -146,24 +158,12 @@ public abstract class AbstractTestUnit implements ITestUnit {
     return spear;
   }
 
-  @Override
-  @Test
-  public void equipStaffTest() {
-    checkEquippedItem(getStaff());
-  }
-
   /**
    * @return the test staff
    */
   @Override
   public Staff getStaff() {
     return staff;
-  }
-
-  @Override
-  @Test
-  public void equipBowTest() {
-    checkEquippedItem(getBow());
   }
 
   /**
@@ -206,4 +206,48 @@ public abstract class AbstractTestUnit implements ITestUnit {
   public Alpaca getTargetAlpaca() {
     return targetAlpaca;
   }
+
+
+  @Override
+  @Test
+  public void equipAnimaTest() {
+    checkWrongEquippedItem(anima);
+  }
+  @Override
+  @Test
+  public void equipDarknessTest() {
+    checkWrongEquippedItem(darkness);
+  }
+  @Override
+  @Test
+  public void equipLightTest() {
+    checkWrongEquippedItem(light);
+  }
+  @Override
+  @Test
+  public void equipAxeTest() {
+    checkWrongEquippedItem(axe);
+  }
+  @Override
+  @Test
+  public void equipBowTest() {
+    checkWrongEquippedItem(bow);
+  }
+  @Override
+  @Test
+  public void equipSpearTest() {
+    checkWrongEquippedItem(spear);
+  }
+  @Override
+  @Test
+  public void equipStaffTest() {
+    checkWrongEquippedItem(staff);
+  }
+  @Override
+  @Test
+  public void equipSwordTest() {
+    checkWrongEquippedItem(sword);
+  }
+
+
 }

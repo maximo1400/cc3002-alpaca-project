@@ -52,17 +52,16 @@ public interface IEquipableItem {
 
 
   boolean canUse(IUnit unit);
-  void AttackUnit(IUnit unit);
+  void AttackUnit(IEquipableItem item);
 
   boolean isWeapon();
 
-//  void doAnimaAttack(IUnit unit);
-//  void doDarknessAttack(IUnit unit);
-//  void doLightAttack(IUnit unit);
-//  void doAxeAttack(IUnit unit);
-//  void doBowAttack(IUnit unit);
-//  void doSpearAttack(IUnit unit);
-//  void doStaffAttack(IUnit unit);
-//  void doSwordAttack(IUnit unit);
+  void receiveAnimaAttack(IEquipableItem item);
+  void receiveDarknessAttack(IEquipableItem item);
+  void receiveLightAttack(IEquipableItem item);
+  void receiveAxeAttack(IEquipableItem item);
+  void receiveBowAttack(IEquipableItem item);
+  void receiveSpearAttack(IEquipableItem item);
 
+  void receiveSwordAttack(IEquipableItem item);
 }

@@ -27,7 +27,7 @@ public class NullItem extends AbstractItem {
     }
 
     @Override
-    public void AttackUnit(IUnit unit) {
+    public void AttackUnit(IEquipableItem item) {
         // Method body intentionally left empty
     }
 
@@ -35,4 +35,40 @@ public class NullItem extends AbstractItem {
     public boolean isWeapon() {
         return false;
     }
+
+    @Override
+    public void receiveAnimaAttack(IEquipableItem item) {
+        this.getOwner().receiveNormalAttack(item);
+    }
+
+    @Override
+    public void receiveDarknessAttack(IEquipableItem item) {
+        this.getOwner().receiveNormalAttack(item);
+    }
+
+    @Override
+    public void receiveLightAttack(IEquipableItem item) {
+        this.getOwner().receiveNormalAttack(item);
+    }
+
+    @Override
+    public void receiveAxeAttack(IEquipableItem item) {
+        this.getOwner().receiveNormalAttack(item);
+    }
+
+    @Override
+    public void receiveBowAttack(IEquipableItem item) {
+        this.getOwner().receiveNormalAttack(item);
+    }
+
+    @Override
+    public void receiveSpearAttack(IEquipableItem item) {
+        this.getOwner().receiveNormalAttack(item);
+    }
+
+    @Override
+    public void receiveSwordAttack(IEquipableItem item) {
+        this.getOwner().receiveNormalAttack(item);
+    }
+
 }

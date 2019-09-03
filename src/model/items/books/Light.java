@@ -1,6 +1,6 @@
 package model.items.books;
 
-import model.units.IUnit;
+import model.items.IEquipableItem;
 
 public class Light extends AbstractBook {
     /**
@@ -16,12 +16,47 @@ public class Light extends AbstractBook {
     }
 
     @Override
-    public void AttackUnit(IUnit unit) {
-        unit.receiveLightAttack(this);
+    public void AttackUnit(IEquipableItem item) {
+        item.receiveLightAttack(this);
     }
 
     @Override
     public boolean isWeapon() {
         return true;
+    }
+
+    @Override
+    public void receiveAnimaAttack(IEquipableItem item) {
+        this.getOwner().receiveStrongAttack(item);
+    }
+
+    @Override
+    public void receiveDarknessAttack(IEquipableItem item) {
+        this.getOwner().receiveWeakAttack(item);
+    }
+
+    @Override
+    public void receiveLightAttack(IEquipableItem item) {
+        this.getOwner().receiveNormalAttack(item);
+    }
+
+    @Override
+    public void receiveAxeAttack(IEquipableItem item) {
+        this.getOwner().receiveStrongAttack(item);
+    }
+
+    @Override
+    public void receiveBowAttack(IEquipableItem item) {
+        this.getOwner().receiveStrongAttack(item);
+    }
+
+    @Override
+    public void receiveSpearAttack(IEquipableItem item) {
+        this.getOwner().receiveStrongAttack(item);
+    }
+
+    @Override
+    public void receiveSwordAttack(IEquipableItem item) {
+        this.getOwner().receiveStrongAttack(item);
     }
 }

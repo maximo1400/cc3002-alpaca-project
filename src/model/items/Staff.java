@@ -39,13 +39,48 @@ public class Staff extends AbstractItem {
   }
 
   @Override
-  public void AttackUnit(IUnit unit) {
-    unit.receiveStaffAttack(this);
+  public void AttackUnit(IEquipableItem item) {
+//   item.receiveStaffAttack(this);
   }
 
   @Override
   public boolean isWeapon() {
     return false;
+  }
+
+  @Override
+  public void receiveAnimaAttack(IEquipableItem item) {
+    this.getOwner().receiveStrongAttack(item);
+  }
+
+  @Override
+  public void receiveDarknessAttack(IEquipableItem item) {
+    this.getOwner().receiveStrongAttack(item);
+  }
+
+  @Override
+  public void receiveLightAttack(IEquipableItem item) {
+    this.getOwner().receiveStrongAttack(item);
+  }
+
+  @Override
+  public void receiveAxeAttack(IEquipableItem item) {
+    this.getOwner().receiveNormalAttack(item);
+  }
+
+  @Override
+  public void receiveBowAttack(IEquipableItem item) {
+    this.getOwner().receiveNormalAttack(item);
+  }
+
+  @Override
+  public void receiveSpearAttack(IEquipableItem item) {
+    this.getOwner().receiveNormalAttack(item);
+  }
+
+  @Override
+  public void receiveSwordAttack(IEquipableItem item) {
+    this.getOwner().receiveNormalAttack(item);
   }
 
 }

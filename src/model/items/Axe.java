@@ -40,13 +40,48 @@ public class Axe extends AbstractItem {
   }
 
   @Override
-  public void AttackUnit(IUnit unit) {
-    unit.receiveAxeAttack(this);
+  public void AttackUnit(IEquipableItem item) {
+    item.receiveAxeAttack(this);
   }
 
   @Override
   public boolean isWeapon() {
     return true;
+  }
+
+  @Override
+  public void receiveAnimaAttack(IEquipableItem item) {
+    this.getOwner().receiveStrongAttack(item);
+  }
+
+  @Override
+  public void receiveDarknessAttack(IEquipableItem item) {
+    this.getOwner().receiveStrongAttack(item);
+  }
+
+  @Override
+  public void receiveLightAttack(IEquipableItem item) {
+    this.getOwner().receiveStrongAttack(item);
+  }
+
+  @Override
+  public void receiveAxeAttack(IEquipableItem item) {
+    this.getOwner().receiveNormalAttack(item);
+  }
+
+  @Override
+  public void receiveBowAttack(IEquipableItem item) {
+    this.getOwner().receiveNormalAttack(item);
+  }
+
+  @Override
+  public void receiveSpearAttack(IEquipableItem item) {
+    this.getOwner().receiveWeakAttack(item);
+  }
+
+  @Override
+  public void receiveSwordAttack(IEquipableItem item) {
+    this.getOwner().receiveStrongAttack(item);
   }
 
 }

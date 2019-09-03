@@ -97,22 +97,6 @@ public interface IUnit {
 
   boolean canReceiveItem();
 
-  void receiveAnimaAttack(Anima anima);
-
-  void receiveDarknessAttack(Darkness darkness);
-
-  void receiveLightAttack(Light light);
-
-  void receiveAxeAttack(Axe axe);
-
-  void receiveBowAttack(Bow bow);
-
-  void receiveSpearAttack(Spear spear);
-
-  void receiveStaffAttack(Staff staff);
-
-  void receiveSwordAttack(Sword sword);
-
   void receiveStrongAttack(IEquipableItem item);
   void receiveNormalAttack(IEquipableItem item);
   void receiveWeakAttack(IEquipableItem item);

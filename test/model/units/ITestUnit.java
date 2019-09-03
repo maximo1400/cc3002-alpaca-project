@@ -41,6 +41,15 @@ public interface ITestUnit {
    */
   IUnit getTestUnit();
 
+  @Test
+  void equipAnimaTest();
+
+  @Test
+  void equipDarknessTest();
+
+  @Test
+  void equipLightTest();
+
   /**
    * Checks if the axe is equipped correctly to the unit
    */
@@ -54,6 +63,11 @@ public interface ITestUnit {
    *     to be equipped
    */
   void checkEquippedItem(IEquipableItem item);
+
+
+  void checkWrongEquippedItem(IEquipableItem item);
+
+
 
   /**
    * @return the test axe

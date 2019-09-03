@@ -1,13 +1,11 @@
 package model.units;
 
-import static java.lang.Math.abs;
 import static java.lang.Math.min;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import model.items.IEquipableItem;
-import model.items.Staff;
+import model.items.*;
 import model.map.Location;
 
 /**
@@ -26,7 +24,7 @@ public abstract class AbstractUnit implements IUnit {
   private final int hitPoints;
   private  int currentHitPoints;
   private final int movement;
-  protected IEquipableItem equippedItem;
+  private IEquipableItem equippedItem;
   private Location location;
 
   /**
@@ -48,6 +46,8 @@ public abstract class AbstractUnit implements IUnit {
     this.movement = movement;
     this.location = location;
     this.items.addAll(Arrays.asList(items).subList(0, min(maxItems, items.length)));
+    this.equippedItem=new NullItem();
+    this.equippedItem.setOwner(this);
   }
 
   @Override
@@ -137,9 +137,9 @@ public abstract class AbstractUnit implements IUnit {
     @Override
   public void attack(IUnit unit){
       if(this.canAttack(unit)) {
-        this.getEquippedItem().AttackUnit(unit);
+        this.getEquippedItem().AttackUnit(unit.getEquippedItem());
         if (unit.canAttack(this))
-          unit.getEquippedItem().AttackUnit(this);
+          unit.getEquippedItem().AttackUnit(this.getEquippedItem());
       }
     }
 
@@ -159,9 +159,5 @@ public abstract class AbstractUnit implements IUnit {
   public void receiveWeakAttack(IEquipableItem item){
     int life =this.getCurrentHitPoints()-(item.getPower()-20);
     this.setCurrentHitPoints(life);
-  }
-  @Override
-  public void receiveStaffAttack(Staff staff) {
-    // Method body intentionally left empty
   }
 }
