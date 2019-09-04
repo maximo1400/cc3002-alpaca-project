@@ -26,7 +26,7 @@ public class Alpaca extends AbstractUnit {
    *     current position of the unit
    */
   public Alpaca(final int hitPoints, final int movement, final Location location,
-      final IEquipableItem... items) {
+       IEquipableItem... items) {
     super(hitPoints, movement, location, Integer.MAX_VALUE, items);
   }
 
@@ -35,46 +35,10 @@ public class Alpaca extends AbstractUnit {
    * <p>
    * The <i>Alpaca</i> cannot equip any item.
    */
-  @Override
-  public void setEquippedItem(final IEquipableItem item) {
-    // Method body intentionally left empty
-  }
-
-
 
   @Override
   public boolean canAttack(IUnit unit) {
     return false;
-  }
-
-  @Override
-  public void equipSpear(Spear spear) {
-    // Method body intentionally left empty
-  }
-
-  @Override
-  public void equipSword(Sword sword) {
-    // Method body intentionally left empty
-  }
-
-  @Override
-  public void equipBook(IBook book) {
-    // Method body intentionally left empty
-  }
-
-  @Override
-  public void equipAxe(Axe axe) {
-    // Method body intentionally left empty
-  }
-
-  @Override
-  public void equipBow(Bow bow) {
-    // Method body intentionally left empty
-  }
-
-  @Override
-  public void equipStaff(Staff staff) {
-    // Method body intentionally left empty
   }
 
   @Override

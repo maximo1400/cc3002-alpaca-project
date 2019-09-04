@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import model.items.*;
+import model.items.books.IBook;
 import model.map.Location;
 
 /**
@@ -20,7 +21,7 @@ import model.map.Location;
  */
 public abstract class AbstractUnit implements IUnit {
 
-  protected final List<IEquipableItem> items = new ArrayList<>();
+  protected List<IEquipableItem> items = new ArrayList<>();
   private final int hitPoints;
   private  int currentHitPoints;
   private final int movement;
@@ -40,13 +41,13 @@ public abstract class AbstractUnit implements IUnit {
    *     maximum amount of items this unit can carry
    */
   protected AbstractUnit(final int hitPoints, final int movement,
-      final Location location, final int maxItems, final IEquipableItem... items) {
+      final Location location, final int maxItems,  IEquipableItem... items) {
     this.currentHitPoints = hitPoints;
     this.hitPoints=hitPoints;
     this.movement = movement;
     this.location = location;
     this.items.addAll(Arrays.asList(items).subList(0, min(maxItems, items.length)));
-    this.equippedItem=new NullItem();
+    this.equippedItem = new NullItem();
     this.equippedItem.setOwner(this);
   }
 
@@ -76,8 +77,15 @@ public abstract class AbstractUnit implements IUnit {
   }
 
   @Override
-  public void removeItem(IEquipableItem item){
+  public void removeFromInventory(IEquipableItem item){
     this.items.remove(item);
+    item.setOwner(null);
+  }
+
+  @Override
+  public void addToInventory(IEquipableItem item){
+    item.setOwner(this);
+    this.items.add(item);
   }
 
   @Override
@@ -103,9 +111,35 @@ public abstract class AbstractUnit implements IUnit {
     }
   }
   @Override
+  public void equipBook(IBook book) {
+    // Method body intentionally left empty
+  }
+  @Override
+  public void equipAxe(Axe axe) {
+    // Method body intentionally left empty
+  }
+  @Override
+  public void equipBow(Bow bow) {
+    // Method body intentionally left empty
+  }
+  @Override
+  public void equipSpear(Spear spear) {
+    // Method body intentionally left empty
+  }
+  @Override
+  public void equipStaff(Staff staff) {
+    // Method body intentionally left empty
+  }
+  @Override
+  public void equipSword(Sword sword) {
+    // Method body intentionally left empty
+  }
+
+  @Override
   public void equipItem(IEquipableItem item){
-    if (item.getOwner().equals(this))
-      item.equip(this);
+    if (item.getOwner()!=null)
+      if (item.getOwner().equals(this) && this.getItems().contains(item))
+       item.equip(this);
   }
 
     @Override
@@ -114,15 +148,16 @@ public abstract class AbstractUnit implements IUnit {
     }
     @Override
     public boolean canReceiveItem(){
-      return this.getItems().size()<=3;
+      return this.getItems().size()<3;
     }
 
 
     @Override
     public void exchange(IEquipableItem item, IUnit unit){
       if(this.canExchange(unit)){
-        item.setOwner(unit);
-        this.removeItem(item);
+        //item.setOwner(unit);
+        this.removeFromInventory(item);
+        unit.addToInventory(item);
       }
     }
   @Override

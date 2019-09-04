@@ -21,10 +21,5 @@ public abstract class AbstractBook extends AbstractItem implements IBook {
         unit.equipBook(this);
     }
 
-    @Override
-    public boolean canUse(IUnit unit) {
-        return false;
-    }
-
 
 }

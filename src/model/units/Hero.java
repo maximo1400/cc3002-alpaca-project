@@ -27,39 +27,10 @@ public class Hero extends AbstractUnit {
     super(hitPoints, movement, location, 3, items);
   }
 
-
-  @Override
-  public void equipAxe(Axe axe) {
-    // Method body intentionally left empty
-  }
-
-  @Override
-  public void equipBow(Bow bow) {
-    // Method body intentionally left empty
-  }
-
   @Override
   public void equipSpear(Spear spear) {
     this.setEquippedItem(spear);
     spear.setOwner(this);
   }
-
-  @Override
-  public void equipStaff(Staff staff) {
-    // Method body intentionally left empty
-  }
-
-
-
-  @Override
-  public void equipSword(Sword sword) {
-    // Method body intentionally left empty
-  }
-
-  @Override
-  public void equipBook(IBook book) {
-    // Method body intentionally left empty
-  }
-
 
 }

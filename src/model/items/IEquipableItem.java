@@ -51,7 +51,6 @@ public interface IEquipableItem {
   int getMaxRange();
 
 
-  boolean canUse(IUnit unit);
   void AttackUnit(IEquipableItem item);
 
   boolean isWeapon();

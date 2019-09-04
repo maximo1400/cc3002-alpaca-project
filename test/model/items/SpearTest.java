@@ -3,6 +3,7 @@ package model.items;
 import model.map.Location;
 import model.units.Hero;
 import model.units.IUnit;
+import org.junit.jupiter.api.BeforeEach;
 
 /**
  * Test set for spears
@@ -20,6 +21,7 @@ public class SpearTest extends AbstractTestItem {
    * Sets which item is going to be tested
    */
   @Override
+  @BeforeEach
   public void setTestItem() {
     expectedName = "Javelin";
     expectedPower = 10;

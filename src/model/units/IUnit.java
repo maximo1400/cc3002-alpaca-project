@@ -42,7 +42,7 @@ public interface IUnit {
    */
   List<IEquipableItem> getItems();
 
-  /**
+ /**
    * @return the currently equipped item
    */
   IEquipableItem getEquippedItem();
@@ -79,9 +79,11 @@ public interface IUnit {
 
   boolean canExchange(IUnit unit);
   void exchange(IEquipableItem item, IUnit unit);
-  void removeItem(IEquipableItem item);
+  void removeFromInventory(IEquipableItem item);
 
-  void equipItem(IEquipableItem item);
+ void addToInventory(IEquipableItem item);
+
+ void equipItem(IEquipableItem item);
 
   void equipSpear(Spear spear);
 

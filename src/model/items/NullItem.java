@@ -21,12 +21,7 @@ public class NullItem extends AbstractItem {
         // Method body intentionally left empty
     }
 
-    @Override
-    public boolean canUse(IUnit unit) {
-        return false;
-    }
-
-    @Override
+ @Override
     public void AttackUnit(IEquipableItem item) {
         // Method body intentionally left empty
     }

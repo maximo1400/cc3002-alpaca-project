@@ -40,12 +40,7 @@ public class Spear extends AbstractItem {
 
   }
 
-  @Override
-  public boolean canUse(IUnit unit) {
-    return false;
-  }
-
-  @Override
+ @Override
   public void AttackUnit(IEquipableItem item) {
     item.receiveSpearAttack(this);
   }

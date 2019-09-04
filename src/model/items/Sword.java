@@ -33,12 +33,7 @@ public class Sword extends AbstractItem {
   }
 
 
-  @Override
-  public boolean canUse(IUnit unit) {
-    return false;
-  }
-
-  @Override
+ @Override
   public void AttackUnit(IEquipableItem item) {
     item.receiveSwordAttack(this);
   }
@@ -65,7 +60,7 @@ public class Sword extends AbstractItem {
 
   @Override
   public void receiveAxeAttack(IEquipableItem item) {
-    this.getOwner().receiveNormalAttack(item);
+    this.getOwner().receiveWeakAttack(item);
   }
 
   @Override

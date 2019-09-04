@@ -1,5 +1,7 @@
 package model.units;
 
+import model.items.Bow;
+import model.items.Sword;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -32,5 +34,18 @@ public class SwordMasterTest extends AbstractTestUnit {
   @Override
   public void equipSwordTest() {
    checkEquippedItem(sword);
+  }
+  @Test
+  @Override
+  public void checkCombat(){
+    checkStrongStrongCombat(getSword(), getLight(),getTargetSorcerer());setUp();
+    checkStrongStrongCombat(getSword(), getDarkness(),getTargetSorcerer());setUp();
+    checkStrongStrongCombat(getSword(),getAnima(),getTargetSorcerer());setUp();
+    checkNormalNormalCombat(getSword(),getBow(),getTargetArcher());setUp();
+    checkStrongWeakCombat(getSword(),getAxe(),getTargetFighter());setUp();
+    checkWeakStrongCombat(getSword(),getSpear(),getTargetHero());setUp();
+    checkNormalNormalCombat(getSword(),new Sword("Other sword", 10, 1, 2),getTargetSwordMaster());setUp();
+    checkUnilateralCombat(getSword(),getTargetCleric()); setUp();
+    checkUnilateralCombat(getSword(),getTargetAlpaca());
   }
 }

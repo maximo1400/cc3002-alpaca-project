@@ -3,6 +3,8 @@ package model.units;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
+import model.items.Bow;
+import model.items.books.Anima;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -38,5 +40,20 @@ public class ArcherTest extends AbstractTestUnit {
   @Override
   public void equipBowTest() {
     checkEquippedItem(bow);
+  }
+
+  @Test
+  @Override
+  public void checkCombat(){
+    checkStrongStrongCombat(getBow(), getLight(),getTargetSorcerer());setUp();
+    checkStrongStrongCombat(getBow(), getDarkness(),getTargetSorcerer());setUp();
+    checkStrongStrongCombat(getBow(),getAnima(),getTargetSorcerer());setUp();
+    checkNormalNormalCombat(getBow(),new Bow("Other Bow",8,2,4),getTargetArcher());setUp();
+    checkNormalNormalCombat(getBow(),getAxe(),getTargetFighter());setUp();
+    checkNormalNormalCombat(getBow(),getSpear(),getTargetHero());setUp();
+    checkNormalNormalCombat(getBow(),getSword(),getTargetSwordMaster());setUp();
+    checkUnilateralCombat(getBow(),getTargetCleric());setUp();
+    checkUnilateralCombat(getBow(),getTargetAlpaca());
+
   }
 }

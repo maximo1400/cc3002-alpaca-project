@@ -35,11 +35,6 @@ public class Axe extends AbstractItem {
   }
 
   @Override
-  public boolean canUse(IUnit unit) {
-    return false;
-  }
-
-  @Override
   public void AttackUnit(IEquipableItem item) {
     item.receiveAxeAttack(this);
   }

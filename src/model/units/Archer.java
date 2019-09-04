@@ -29,43 +29,15 @@ public class Archer extends AbstractUnit {
    *     the items carried by this unit
    */
   public Archer(final int hitPoints, final int movement, final Location position,
-      final IEquipableItem... items) {
+       IEquipableItem... items) {
     super(hitPoints, movement, position, 3, items);
   }
 
-
-  @Override
-  public void equipSpear(Spear spear) {
-    // Method body intentionally left empty
-  }
-
-  @Override
-  public void equipSword(Sword sword) {
-    // Method body intentionally left empty
-  }
-
-  @Override
-  public void equipBook(IBook book) {
-    // Method body intentionally left empty
-  }
-
-  @Override
-  public void equipAxe(Axe axe) {
-    // Method body intentionally left empty
-  }
 
   @Override
   public void equipBow(Bow bow) {
     this.setEquippedItem(bow);
     bow.setOwner(this);
   }
-
-  @Override
-  public void equipStaff(Staff staff) {
-    // Method body intentionally left empty
-  }
-
-
-
 
 }

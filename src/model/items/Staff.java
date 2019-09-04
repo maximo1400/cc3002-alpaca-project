@@ -33,12 +33,7 @@ public class Staff extends AbstractItem {
     unit.equipStaff(this);
   }
 
-    @Override
-  public boolean canUse(IUnit unit) {
-    return false;
-  }
-
-  @Override
+ @Override
   public void AttackUnit(IEquipableItem item) {
 //   item.receiveStaffAttack(this);
   }

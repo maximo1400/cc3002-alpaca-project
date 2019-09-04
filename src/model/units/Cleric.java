@@ -33,31 +33,6 @@ public class Cleric extends AbstractUnit {
   }
 
   @Override
-  public void equipSpear(Spear spear) {
-    // Method body intentionally left empty
-  }
-
-  @Override
-  public void equipSword(Sword sword) {
-    // Method body intentionally left empty
-  }
-
-  @Override
-  public void equipBook(IBook book) {
-    // Method body intentionally left empty
-  }
-
-  @Override
-  public void equipAxe(Axe axe) {
-    // Method body intentionally left empty
-  }
-
-  @Override
-  public void equipBow(Bow bow) {
-    // Method body intentionally left empty
-  }
-
-  @Override
   public void equipStaff(Staff staff) {
     this.setEquippedItem(staff);
     staff.setOwner(this);

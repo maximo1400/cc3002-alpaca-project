@@ -2,6 +2,9 @@ package model.units;
 
 
 import model.items.*;
+import model.items.books.Anima;
+import model.items.books.Darkness;
+import model.items.books.Light;
 import model.map.Field;
 import org.junit.jupiter.api.Test;
 
@@ -18,14 +21,14 @@ public interface ITestUnit {
    */
   void setField();
 
-  /**
+ void setTargetUnits();
+
+ /**
    * Set up the main unit that's going to be tested in the test set
    */
   void setTestUnit();
 
-  void setTargetAlpaca();
-
-  /**
+ /**
    * Creates a set of testing weapons
    */
   void setWeapons();
@@ -41,7 +44,19 @@ public interface ITestUnit {
    */
   IUnit getTestUnit();
 
-  @Test
+ Archer getTargetArcher();
+
+ Cleric getTargetCleric();
+
+ Fighter getTargetFighter();
+
+ Hero getTargetHero();
+
+ Sorcerer getTargetSorcerer();
+
+ SwordMaster getTargetSwordMaster();
+
+ @Test
   void equipAnimaTest();
 
   @Test
@@ -101,12 +116,18 @@ public interface ITestUnit {
   @Test
   void equipBowTest();
 
-  /**
+ Anima getAnima();
+
+ Darkness getDarkness();
+
+ /**
    * @return the test bow
    */
   Bow getBow();
 
-  /**
+ Light getLight();
+
+ /**
    * Checks if the unit moves correctly
    */
   @Test
@@ -121,4 +142,25 @@ public interface ITestUnit {
    * @return the target Alpaca
    */
   Alpaca getTargetAlpaca();
+
+ @Test
+  void checkStrongStrongCombat(IEquipableItem itemForThis, IEquipableItem itemForUnit, IUnit unit);
+
+  @Test
+ void checkNormalNormalCombat(IEquipableItem itemForThis, IEquipableItem itemForUnit, IUnit unit);
+
+  @Test
+  void checkWeakWeakCombat(IEquipableItem itemForThis, IEquipableItem itemForUnit, IUnit unit);
+
+ void checkStrongWeakCombat(IEquipableItem itemForThis, IEquipableItem itemForUnit, IUnit unit);
+
+ void checkWeakStrongCombat(IEquipableItem itemForThis, IEquipableItem itemForUnit, IUnit unit);
+
+ void checkUnilateralCombat(IEquipableItem itemForThis, IUnit unit);
+
+ // @Test
+ // public abstract void checkCombat();
+ //
+  @Test
+  void checkExchange();
 }
