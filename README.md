@@ -35,15 +35,45 @@ name of their owners; for this there were the following Items:
 * Darkness (Book)
 * NullItem (The same as no item)
 
+As for the structure of this code it was started with an interface common for all items which was implemented by an
+abstract class that was later extended by all non book classes, in the books case it was started with an interface that
+extended the original one, then an abstract class implemented this new interface while also extending the abstract class
+common for the other Items, later the abstract class of the books was extended with the 3 books.
+
+Every item has a name, an amount representing their power and two numbers representing their range Limits.
+
+To equip items it was used double dispatch so only the correct unit could equip each item kind
 
 
+## Combat
 
-There were also several kind of weapons implemented 
- types of card branching frm an interface called "ICard", the first kind of card was the energy kind 
-that has the ability to be played onto the other kind of card (pokemon) adding energy of a certain kind, there are 6 kinds
-Fire, Water, Grass, Psychic, Fighting and Electric. The other kind of card is pokemon, pokemon has a name, an identification 
-number, health points, energy points (of all mentioned classes) and different abilities, pokemon is able to attack each 
-other, can die because of it and can choose abilities between an array of selections, for the abilities it was codded an 
-abstract class "AbstractSkill" and it was expanded with the Attack class; this class is composed of a name, some energy 
-requirements that have to be check before using, a value of base damage and some info to give the trainer enough data 
-to know how to use it.  
+The combat requires to start a unit with a weapon equipped and another unit in thier weapon's range and if the 
+second unit has a weapon an counterattack follows.
+
+when an attack happens the victim losses hitPoints equal to the power of the attacking weapon except when the 
+combination of weapons makes a strong attack(1.5 times the power) or a weak attack(the power -20)  the combination 
+between non magical weapons is:
+
+
+Item | Weak Against | Strong Against    
+:-----:|:-----:|:-----:|
+Axe | Sword | Spear 
+Sword | Spear | Axe
+Spear | Axe | Sword
+
+And between Magical weapons (Books) the table is:
+
+Item    | Weak Against    | Strong Against    
+:-----:|:-----:|:-----:|
+Anima | Darkness | Light 
+Darkness | Light | Anima
+Light | Anima | Darkness
+
+Also every attack between a magical item and a non magical item is strong.
+
+## Exchange
+
+Two units next to each other if they are next to each other in the map and the receiver has less than 3 items 
+(this limit does not apply to the alpaca)
+
+
