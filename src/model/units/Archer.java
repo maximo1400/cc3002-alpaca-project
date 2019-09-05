@@ -1,10 +1,8 @@
 package model.units;
 
-import model.items.*;
-import model.items.books.IBook;
+import model.items.Bow;
+import model.items.IEquipableItem;
 import model.map.Location;
-
-import static java.lang.StrictMath.abs;
 
 /**
  * This class represents an <i>Archer</i> type unit.

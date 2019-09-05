@@ -1,7 +1,7 @@
 package model.units;
 
-import model.items.*;
-import model.items.books.IBook;
+import model.items.Axe;
+import model.items.IEquipableItem;
 import model.map.Location;
 
 /**
@@ -12,7 +12,18 @@ import model.map.Location;
  * @since 1.0
  */
 public class Fighter extends AbstractUnit {
-
+  /**
+   * Creates a new Unit.
+   *
+   * @param hitPoints
+   *     the maximum amount of damage a unit can sustain
+   * @param movement
+   *     the number of panels a unit can move
+   * @param location
+   *     the current position of this unit on the map
+   * @param items
+   *     maximum amount of items this unit can carry
+   */
   public Fighter(final int hitPoints, final int movement, final Location location,
       IEquipableItem... items) {
     super(hitPoints, movement, location, 3, items);

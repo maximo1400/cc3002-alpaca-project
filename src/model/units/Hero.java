@@ -1,7 +1,7 @@
 package model.units;
 
-import model.items.*;
-import model.items.books.IBook;
+import model.items.IEquipableItem;
+import model.items.Spear;
 import model.map.Location;
 
 /**
@@ -21,6 +21,10 @@ public class Hero extends AbstractUnit {
    *     the maximum amount of damage a unit can sustain
    * @param movement
    *     the number of panels a unit can move
+   * @param location
+   *     the current position of this unit on the map
+   * @param items
+   *     maximum amount of items this unit can carry
    */
   public Hero(final int hitPoints, final int movement, final Location location,
       IEquipableItem... items) {

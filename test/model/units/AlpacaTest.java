@@ -1,6 +1,5 @@
 package model.units;
 
-import model.map.Location;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -31,6 +30,9 @@ public class AlpacaTest extends AbstractTestUnit {
     @Test
     @Override
     public void checkExchange(){
+      targetAlpaca.moveTo(getField().getCell(0,0));
+      getTestUnit().moveTo(getField().getCell(0,2));
+
       targetAlpaca.addToInventory(getAnima());
       targetAlpaca.addToInventory(getAxe());
       targetAlpaca.addToInventory(getBow());
@@ -39,6 +41,9 @@ public class AlpacaTest extends AbstractTestUnit {
       targetAlpaca.addToInventory(getSpear());
       targetAlpaca.addToInventory(getStaff());
       targetAlpaca.addToInventory(getSword());
+
+      targetAlpaca.exchange(getAnima(),getTestUnit());
+      assertFalse(getTestUnit().getItems().contains(getAnima()));
 
       targetAlpaca.moveTo(getField().getCell(0,0));
       getTestUnit().moveTo(getField().getCell(0,1));

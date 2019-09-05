@@ -1,13 +1,14 @@
 package model.units;
 
-import static java.lang.Math.min;
+import model.items.*;
+import model.items.books.IBook;
+import model.map.Location;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import model.items.*;
-import model.items.books.IBook;
-import model.map.Location;
+
+import static java.lang.Math.min;
 
 /**
  * This class represents an abstract unit.

@@ -1,9 +1,5 @@
 package model.units;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
-
-import model.items.Bow;
 import model.items.Spear;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -48,6 +44,8 @@ public class HeroTest extends AbstractTestUnit {
     checkWeakStrongCombat(getSpear(),getAxe(),getTargetFighter());setUp();
     checkNormalNormalCombat(getSpear(),new Spear("Other Spear", 10, 1, 2),getTargetHero());setUp();
     checkStrongWeakCombat(getSpear(),getSword(),getTargetSwordMaster());setUp();
+    targetCleric.addToInventory(getStaff());
+    targetCleric.equipItem(getStaff());
     checkUnilateralCombat(getSpear(),getTargetCleric());setUp();
     checkUnilateralCombat(getSpear(),getTargetAlpaca());
   }

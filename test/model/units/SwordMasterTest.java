@@ -1,11 +1,7 @@
 package model.units;
 
-import model.items.Bow;
 import model.items.Sword;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
 
 /**
  * @author Ignacio Slater Muñoz
@@ -45,6 +41,8 @@ public class SwordMasterTest extends AbstractTestUnit {
     checkStrongWeakCombat(getSword(),getAxe(),getTargetFighter());setUp();
     checkWeakStrongCombat(getSword(),getSpear(),getTargetHero());setUp();
     checkNormalNormalCombat(getSword(),new Sword("Other sword", 10, 1, 2),getTargetSwordMaster());setUp();
+    targetCleric.addToInventory(getStaff());
+    targetCleric.equipItem(getStaff());
     checkUnilateralCombat(getSword(),getTargetCleric()); setUp();
     checkUnilateralCombat(getSword(),getTargetAlpaca());
   }

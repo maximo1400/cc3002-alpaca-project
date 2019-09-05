@@ -1,15 +1,20 @@
 package model.items.books;
 
 import model.items.IEquipableItem;
-
+/**
+ * This class represents a Light book
+ * Light is strong against Darkness and non magic items and weak against Anima
+ * @author Maximo Retamal Rojas
+ * @since 2.0
+ */
 public class Light extends AbstractBook {
     /**
-     * Constructor for a default item without any special behaviour.
+     * Constructor for Light kind of weapon/book.
      *
-     * @param name     the name of the item
+     * @param name     the name of the Book
      * @param power    the power of the item (this could be the amount of damage or healing the item does)
-     * @param minRange the minimum range of the item
-     * @param maxRange
+     * @param minRange the minimum range of the Book
+     * @param maxRange the maximum range of the Book
      */
     public Light(String name, int power, int minRange, int maxRange) {
         super(name, power, minRange, maxRange);

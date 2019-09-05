@@ -1,6 +1,6 @@
 package model.items;
 
-import model.units.*;
+import model.units.IUnit;
 
 /**
  * This interface represents the <i>weapons</i> that the units of the game can use.
@@ -27,6 +27,7 @@ public interface IEquipableItem {
   IUnit getOwner();
   /**
    * Sets the unit that has currently equipped this item
+   * @param unit the unit that the item is equipped onto
    */
   void setOwner(IUnit unit);
 
@@ -51,16 +52,50 @@ public interface IEquipableItem {
   int getMaxRange();
 
 
+  /**
+   * Attacks an unit through its equipped item
+   * @param item the item equipped by the attacked
+   */
   void AttackUnit(IEquipableItem item);
 
+  /**
+   * @return true if the item can attack (only weapons can attack)
+   */
   boolean isWeapon();
 
+  /**
+   * the owner receives an anima attack by the item
+   * @param item the attacking item
+   */
   void receiveAnimaAttack(IEquipableItem item);
+ /**
+  * the owner receives an anima attack by the item
+  * @param item the attacking item
+  */
   void receiveDarknessAttack(IEquipableItem item);
+ /**
+  * the owner receives an darkness attack by the item
+  * @param item the attacking item
+  */
   void receiveLightAttack(IEquipableItem item);
+ /**
+  * the owner receives an light attack by the item
+  * @param item the attacking item
+  */
   void receiveAxeAttack(IEquipableItem item);
+ /**
+  * the owner receives an bow attack by the item
+  * @param item the attacking item
+  */
   void receiveBowAttack(IEquipableItem item);
+ /**
+  * the owner receives an spear attack by the item
+  * @param item the attacking item
+  */
   void receiveSpearAttack(IEquipableItem item);
-
+ /**
+  * the owner receives an sword attack by the item
+  * @param item the attacking item
+  */
   void receiveSwordAttack(IEquipableItem item);
 }

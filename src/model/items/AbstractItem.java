@@ -65,4 +65,13 @@ public abstract class AbstractItem implements IEquipableItem {
     return maxRange;
   }
 
+  @Override
+  public void AttackUnit(IEquipableItem item) {
+//   item.receiveStaffAttack(this);
+  }
+
+  @Override
+  public boolean isWeapon() {
+    return false;
+  }
 }

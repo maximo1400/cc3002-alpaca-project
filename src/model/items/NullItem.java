@@ -4,8 +4,8 @@ import model.units.IUnit;
 
 public class NullItem extends AbstractItem {
     /**
-     * Constructor for a default item without any special behaviour.
-
+     * Constructor for a null item without any special behaviour.
+     * Used to avoid null checking
      */
     public NullItem() {
         super("Null Item", 0, 0, 0);
@@ -21,15 +21,6 @@ public class NullItem extends AbstractItem {
         // Method body intentionally left empty
     }
 
- @Override
-    public void AttackUnit(IEquipableItem item) {
-        // Method body intentionally left empty
-    }
-
-    @Override
-    public boolean isWeapon() {
-        return false;
-    }
 
     @Override
     public void receiveAnimaAttack(IEquipableItem item) {

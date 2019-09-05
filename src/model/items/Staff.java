@@ -1,6 +1,6 @@
 package model.items;
 
-import model.units.*;
+import model.units.IUnit;
 
 /**
  * This class represents a <i>Staff</i> type item.
@@ -33,15 +33,7 @@ public class Staff extends AbstractItem {
     unit.equipStaff(this);
   }
 
- @Override
-  public void AttackUnit(IEquipableItem item) {
-//   item.receiveStaffAttack(this);
-  }
 
-  @Override
-  public boolean isWeapon() {
-    return false;
-  }
 
   @Override
   public void receiveAnimaAttack(IEquipableItem item) {

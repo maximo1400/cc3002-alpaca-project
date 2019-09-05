@@ -1,8 +1,11 @@
 package model.items;
 
-import model.units.*;
+import model.units.IUnit;
 
-/**
+/**This class represents an bow.
+ * <p>
+ * bows are srong against magical items
+ *
  * @author Ignacio Slater Muñoz
  * @since
  */

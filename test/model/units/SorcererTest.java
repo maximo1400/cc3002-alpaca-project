@@ -1,14 +1,9 @@
 package model.units;
 
-import model.items.Bow;
 import model.items.books.Anima;
 import model.items.books.Darkness;
 import model.items.books.Light;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
 
 class SorcererTest extends  AbstractTestUnit{
     private Sorcerer sorcerer;
@@ -54,7 +49,7 @@ class SorcererTest extends  AbstractTestUnit{
         checkStrongStrongCombat(getAnima(),getAxe(),getTargetFighter());setUp();
         checkStrongStrongCombat(getAnima(),getSpear(),getTargetHero());setUp();
         checkStrongStrongCombat(getAnima(),getSword(),getTargetSwordMaster());setUp();
-        checkUnilateralCombat(getAnima(),getTargetCleric());setUp();
+        checkMagicToClericCombat(getAnima());setUp();
         checkUnilateralCombat(getAnima(),getTargetAlpaca());setUp();
 
         checkWeakStrongCombat(getDarkness(), getLight(),getTargetSorcerer());setUp();
@@ -64,7 +59,8 @@ class SorcererTest extends  AbstractTestUnit{
         checkStrongStrongCombat(getDarkness(),getAxe(),getTargetFighter());setUp();
         checkStrongStrongCombat(getDarkness(),getSpear(),getTargetHero());setUp();
         checkStrongStrongCombat(getDarkness(),getSword(),getTargetSwordMaster());setUp();
-        checkUnilateralCombat(getDarkness(),getTargetCleric());setUp();
+
+        checkMagicToClericCombat(getDarkness());setUp();
         checkUnilateralCombat(getDarkness(),getTargetAlpaca());setUp();
 
         checkNormalNormalCombat(getLight(), new Light("Other Light",10,1,3),getTargetSorcerer());setUp();
@@ -74,7 +70,8 @@ class SorcererTest extends  AbstractTestUnit{
         checkStrongStrongCombat(getLight(),getAxe(),getTargetFighter());setUp();
         checkStrongStrongCombat(getLight(),getSpear(),getTargetHero());setUp();
         checkStrongStrongCombat(getLight(),getSword(),getTargetSwordMaster());setUp();
-        checkUnilateralCombat(getLight(),getTargetCleric());setUp();
+
+        checkMagicToClericCombat(getLight());setUp();
         checkUnilateralCombat(getLight(),getTargetAlpaca());setUp();
 
 

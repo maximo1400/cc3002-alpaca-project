@@ -1,7 +1,7 @@
 package model.units;
 
-import model.items.*;
-import model.items.books.IBook;
+import model.items.IEquipableItem;
+import model.items.Sword;
 import model.map.Location;
 
 /**

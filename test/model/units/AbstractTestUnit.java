@@ -59,6 +59,9 @@ public abstract class AbstractTestUnit implements ITestUnit {
           new Location(2, 1), new Location(2, 2));
  }
 
+ /**
+  * sets auxiliary units for testing
+  */
  @Override
  public void setTargetUnits(){
   targetAlpaca = new Alpaca(50, 2, field.getCell(0, 2));
@@ -110,13 +113,9 @@ public abstract class AbstractTestUnit implements ITestUnit {
  @Override
  public abstract IUnit getTestUnit();
 
-//  /**
-//   * Checks if the axe is equipped correctly to the unit
-//   */
-//
 
  /**
-  * Tries to equip a weapon to the alpaca and verifies that it was not equipped
+  * Does testing with item that can be equipped
   *
   * @param item
   *     to be equipped
@@ -132,6 +131,12 @@ public abstract class AbstractTestUnit implements ITestUnit {
   getTestUnit().removeFromInventory(item);
   getTestUnit().setEquippedItem(nullItem);
  }
+ /**
+  * Does testing with item that can't be equipped
+  *
+  * @param item
+  *     to be equipped
+  */
  @Override
  public void checkWrongEquippedItem(IEquipableItem item){
   assertEquals(getTestUnit().getEquippedItem().getClass(),nullItem.getClass());
@@ -183,14 +188,25 @@ public abstract class AbstractTestUnit implements ITestUnit {
  public Bow getBow() {
   return bow;
  }
+ /**
+  * @return the test anima
+  */
  @Override
  public Anima getAnima() {
   return anima;
  }
+
+ /**
+  * @return the test darkness
+  */
  @Override
  public Darkness getDarkness() {
   return darkness;
  }
+
+ /**
+  * @return the test light
+  */
  @Override
  public Light getLight() {
   return light;
@@ -228,67 +244,122 @@ public abstract class AbstractTestUnit implements ITestUnit {
  public Alpaca getTargetAlpaca() {
   return targetAlpaca;
  }
+
+ /**
+  * @return the test archer
+  */
  @Override
  public Archer getTargetArcher() {
   return targetArcher;
  }
+
+ /**
+  * @return the test cleric
+  */
  @Override
  public Cleric getTargetCleric() {
   return targetCleric;
  }
+
+ /**
+  * @return the test fighter
+  */
  @Override
  public Fighter getTargetFighter() {
   return targetFighter;
  }
+
+ /**
+  * @return the test hero
+  */
  @Override
  public Hero getTargetHero() {
   return targetHero;
  }
+
+ /**
+  * @return the test sorcerer
+  */
  @Override
  public Sorcerer getTargetSorcerer() {
   return targetSorcerer;
  }
+
+ /**
+  * @return the test swordMaster
+  */
  @Override
  public SwordMaster getTargetSwordMaster() {
   return targetSwordMaster;
  }
 
 
+ /**
+  * tests equipping anima
+  */
  @Override
  @Test
  public void equipAnimaTest() {
   checkWrongEquippedItem(anima);
  }
+
+ /**
+  * test equipping darkness
+  */
  @Override
  @Test
  public void equipDarknessTest() {
   checkWrongEquippedItem(darkness);
  }
+
+ /**
+  * test equipping light
+  */
  @Override
  @Test
  public void equipLightTest() {
   checkWrongEquippedItem(light);
  }
+
+ /**
+  * tests equipping axe
+  */
  @Override
  @Test
  public void equipAxeTest() {
   checkWrongEquippedItem(axe);
  }
+
+ /**
+  * test equipping bow
+  */
  @Override
  @Test
  public void equipBowTest() {
   checkWrongEquippedItem(bow);
  }
+
+ /**
+  * tests equipping spear
+  */
  @Override
  @Test
  public void equipSpearTest() {
   checkWrongEquippedItem(spear);
  }
+
+ /**
+  * test equipping staff
+  */
  @Override
  @Test
  public void equipStaffTest() {
   checkWrongEquippedItem(staff);
  }
+
+ /**
+  * tests equiping sword
+  */
  @Override
  @Test
  public void equipSwordTest() {
@@ -296,6 +367,12 @@ public abstract class AbstractTestUnit implements ITestUnit {
  }
 
 
+ /**
+  * test attack in normal attack vs normal attack scenario
+  * @param itemForThis test unit weapon
+  * @param itemForUnit units weapon
+  * @param unit unit to attack
+  */
  public void checkNormalNormalCombat(IEquipableItem itemForThis, IEquipableItem itemForUnit, IUnit unit){
   int victimsLife= unit.getCurrentHitPoints();
   int thisLife=getTestUnit().getCurrentHitPoints();
@@ -324,6 +401,12 @@ public abstract class AbstractTestUnit implements ITestUnit {
   unit.removeFromInventory(itemForUnit);
   unit.setEquippedItem(nullItem);
  }
+ /**
+  * test attack in strong attack vs strong attack scenario
+  * @param itemForThis test unit weapon
+  * @param itemForUnit units weapon
+  * @param unit unit to attack
+  */
  @Override
  public void checkStrongStrongCombat(IEquipableItem itemForThis, IEquipableItem itemForUnit, IUnit unit){
   int victimsLife= unit.getCurrentHitPoints();
@@ -354,6 +437,12 @@ public abstract class AbstractTestUnit implements ITestUnit {
   unit.setEquippedItem(nullItem);
  }
  @Override
+ /**
+  * test attack in weak attack vs normal weak scenario
+  * @param itemForThis test unit weapon
+  * @param itemForUnit units weapon
+  * @param unit unit to attack
+  */
  public void checkWeakWeakCombat(IEquipableItem itemForThis, IEquipableItem itemForUnit, IUnit unit){
   int victimsLife= unit.getCurrentHitPoints();
   int thisLife=getTestUnit().getCurrentHitPoints();
@@ -383,6 +472,12 @@ public abstract class AbstractTestUnit implements ITestUnit {
   unit.setEquippedItem(nullItem);
  }
  @Override
+ /**
+  * test attack in weak attack vs strong attack scenario
+  * @param itemForThis test unit weapon
+  * @param itemForUnit units weapon
+  * @param unit unit to attack
+  */
  public void checkWeakStrongCombat(IEquipableItem itemForThis, IEquipableItem itemForUnit, IUnit unit){
   int victimsLife= unit.getCurrentHitPoints();
   int thisLife=getTestUnit().getCurrentHitPoints();
@@ -411,6 +506,12 @@ public abstract class AbstractTestUnit implements ITestUnit {
   unit.removeFromInventory(itemForUnit);
   unit.setEquippedItem(nullItem);
  }
+ /**
+  * test attack in strong attack vs weak attack scenario
+  * @param itemForThis test unit weapon
+  * @param itemForUnit units weapon
+  * @param unit unit to attack
+  */
  @Override
  public void checkStrongWeakCombat(IEquipableItem itemForThis, IEquipableItem itemForUnit, IUnit unit){
   int victimsLife= unit.getCurrentHitPoints();
@@ -440,6 +541,11 @@ public abstract class AbstractTestUnit implements ITestUnit {
   unit.removeFromInventory(itemForUnit);
   unit.setEquippedItem(nullItem);
  }
+ /**
+  * test attack to unit that cannot defend
+  * @param itemForThis test unit weapon
+  * @param unit unit to attack
+  */
  @Override
  public void checkUnilateralCombat(IEquipableItem itemForThis, IUnit unit){
   int victimsLife= unit.getCurrentHitPoints();
@@ -456,12 +562,45 @@ public abstract class AbstractTestUnit implements ITestUnit {
   assertEquals(thisLife,getTestUnit().getCurrentHitPoints());
   assertEquals(victimsLife-itemForThis.getPower(),unit.getCurrentHitPoints());
  }
+ /**
+  * test attacking cleric with books
+  * @param itemForThis test unit weapon
+  */
+ @Override
+ public void checkMagicToClericCombat(IEquipableItem itemForThis) {
+  int victimsLife = targetCleric.getCurrentHitPoints();
+  int thisLife = getTestUnit().getCurrentHitPoints();
+
+  getTestUnit().attack(targetCleric);
+  assertEquals(thisLife, getTestUnit().getCurrentHitPoints());
+  assertEquals(victimsLife, targetCleric.getCurrentHitPoints());
+
+  getTestUnit().addToInventory(itemForThis);
+  getTestUnit().equipItem(itemForThis);
+  targetCleric.addToInventory(getStaff());
+  targetCleric.equipItem(getStaff());
+
+  getTestUnit().attack(targetCleric);
+  assertEquals(thisLife, getTestUnit().getCurrentHitPoints());
+  assertEquals((int) (victimsLife - itemForThis.getPower() * 1.5), targetCleric.getCurrentHitPoints());
+ }
+
+ /**
+  * test that combat works as desired
+  */
  @Test
  public abstract void checkCombat();
 
+ /**
+  * checks exchange between units
+  */
  @Test
  @Override
  public void checkExchange(){
+  targetAlpaca.moveTo(getField().getCell(0,0));
+  getTestUnit().moveTo(getField().getCell(0,2));
+
+
   targetAlpaca.addToInventory(getAnima());
   targetAlpaca.addToInventory(getAxe());
   targetAlpaca.addToInventory(getBow());
@@ -470,6 +609,9 @@ public abstract class AbstractTestUnit implements ITestUnit {
   targetAlpaca.addToInventory(getSpear());
   targetAlpaca.addToInventory(getStaff());
   targetAlpaca.addToInventory(getSword());
+
+  targetAlpaca.exchange(getAnima(),getTestUnit());
+  assertFalse(getTestUnit().getItems().contains(getAnima()));
 
   targetAlpaca.moveTo(getField().getCell(0,0));
   getTestUnit().moveTo(getField().getCell(0,1));
