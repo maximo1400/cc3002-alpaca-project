@@ -66,12 +66,16 @@ public abstract class AbstractItem implements IEquipableItem {
   }
 
   @Override
-  public void AttackUnit(IEquipableItem item) {
-//   item.receiveStaffAttack(this);
+  public void attackUnit(IEquipableItem item) {
+// Method body intentionally left empty
   }
 
   @Override
   public boolean isWeapon() {
     return false;
+  }
+  @Override
+  public void useHealing(IUnit unit){
+    // Method body intentionally left empty
   }
 }

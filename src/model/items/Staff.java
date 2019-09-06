@@ -70,4 +70,15 @@ public class Staff extends AbstractItem {
     this.getOwner().receiveNormalAttack(item);
   }
 
+  @Override
+  public void useHealing(IUnit unit){
+    double dist =unit.getLocation().distanceTo(this.getOwner().getLocation());
+    if(unit.getLocation().distanceTo(this.getOwner().getLocation())<=this.getMaxRange() &&
+            unit.getLocation().distanceTo(this.getOwner().getLocation())>=this.getMinRange()){
+      int newCurrentHitPoints = unit.getCurrentHitPoints()+this.getPower();
+      unit.setCurrentHitPoints(newCurrentHitPoints);
+    }
+
+  }
+
 }

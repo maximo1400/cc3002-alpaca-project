@@ -1,5 +1,8 @@
 package model.items;
 
+import model.map.Field;
+import model.map.Location;
+import model.units.Alpaca;
 import model.units.IUnit;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -114,4 +117,57 @@ public abstract class AbstractTestItem {
    * @return a unit that can equip the item being tested
    */
   public abstract IUnit getTestUnit();
+
+  @Test
+  public void isWeaponTest(){
+    assertFalse(getTestItem().isWeapon());
+  }
+  @Test
+  public void AttackUnitTest(){
+    Field field = new Field();
+    field.addCells(true, new Location(0, 0), new Location(0, 1), new Location(0, 2),
+            new Location(1, 0), new Location(1, 1), new Location(1, 2), new Location(2, 0),
+            new Location(2, 1), new Location(2, 2));
+
+
+    Alpaca targetAlpaca = new Alpaca(50, 2, field.getCell(0, 0));
+    targetAlpaca.moveTo(field.getCell(0,0));
+    getTestUnit().setLocation(field.getCell(0,1));
+    assertTrue(targetAlpaca.getLocation().distanceTo(getTestUnit().getLocation())<=1);
+
+    int life=targetAlpaca.getCurrentHitPoints();
+    getTestUnit().getEquippedItem().attackUnit(targetAlpaca.getEquippedItem());
+    assertEquals(life,targetAlpaca.getCurrentHitPoints());
+    getTestUnit().addToInventory(getTestItem());
+    getTestUnit().equipItem(getTestItem());
+    getTestUnit().getEquippedItem().attackUnit(targetAlpaca.getEquippedItem());
+    assertEquals(life-getTestItem().getPower(),targetAlpaca.getCurrentHitPoints());
+
+  }
+
+  @Test
+  public void useHealingTest(){
+   getTestUnit().addToInventory(getTestItem());
+   getTestUnit().equipItem(getTestItem());
+
+    Field field = new Field();
+    field.addCells(true, new Location(0, 0), new Location(0, 1), new Location(0, 2),
+            new Location(1, 0), new Location(1, 1), new Location(1, 2), new Location(2, 0),
+            new Location(2, 1), new Location(2, 2));
+
+
+    Alpaca targetAlpaca = new Alpaca(50, 2, field.getCell(0, 0));
+    targetAlpaca.moveTo(field.getCell(0,0));
+    getTestUnit().setLocation(field.getCell(0,1));
+
+    int life=targetAlpaca.getCurrentHitPoints();
+    getTestUnit().getEquippedItem().useHealing(targetAlpaca);
+    assertEquals(life,targetAlpaca.getCurrentHitPoints());
+    getTestUnit().addToInventory(getTestItem());
+    getTestUnit().equipItem(getTestItem());
+    getTestUnit().getEquippedItem().useHealing(targetAlpaca);
+    assertEquals(life,targetAlpaca.getCurrentHitPoints());
+
+
+  }
 }

@@ -4,6 +4,9 @@ import model.map.Location;
 import model.units.Hero;
 import model.units.IUnit;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * Test set for spears
@@ -65,5 +68,9 @@ public class SpearTest extends AbstractTestItem {
   @Override
   public IUnit getTestUnit() {
     return hero;
+  }
+  @Test
+  public void isWeaponTest(){
+    assertTrue(getTestItem().isWeapon());
   }
 }

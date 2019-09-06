@@ -37,6 +37,10 @@ public class Cleric extends AbstractUnit {
     this.setEquippedItem(staff);
     staff.setOwner(this);
   }
+  @Override
+  public void heal(IUnit unit){
+    this.getEquippedItem().useHealing(unit);
+  }
 
 
 }

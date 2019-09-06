@@ -41,7 +41,7 @@ public class Spear extends AbstractItem {
   }
 
  @Override
-  public void AttackUnit(IEquipableItem item) {
+  public void attackUnit(IEquipableItem item) {
     item.receiveSpearAttack(this);
   }
 

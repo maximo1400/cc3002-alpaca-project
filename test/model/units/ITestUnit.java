@@ -233,4 +233,10 @@ public interface ITestUnit {
   */
   @Test
   void checkExchange();
+
+ /**
+  * Test healing capabilities of units
+  */
+ @Test
+ void TestHealing();
 }

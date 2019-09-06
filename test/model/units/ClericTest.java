@@ -2,6 +2,8 @@ package model.units;
 
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 /**
  * @author Ignacio Slater Muñoz
  */
@@ -31,7 +33,23 @@ public class ClericTest extends AbstractTestUnit {
     checkEquippedItem(staff);
   }
 
+  @Test
   @Override
   public void checkCombat() {
+    // Method body intentionally left empty
   }
+  @Override
+  @Test
+  public void TestHealing(){
+    targetAlpaca.moveTo(getField().getCell(0,0));
+    getTestUnit().moveTo(getField().getCell(0,1));
+    int life=targetAlpaca.getCurrentHitPoints();
+    getTestUnit().heal(targetAlpaca);
+    assertEquals(life,targetAlpaca.getCurrentHitPoints());
+    getTestUnit().addToInventory(staff);
+    getTestUnit().equipItem(staff);
+    getTestUnit().heal(targetAlpaca);
+    assertEquals(life+staff.getPower(),targetAlpaca.getCurrentHitPoints());
+  }
+
 }

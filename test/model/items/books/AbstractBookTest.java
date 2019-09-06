@@ -5,6 +5,9 @@ import model.items.IEquipableItem;
 import model.map.Location;
 import model.units.IUnit;
 import model.units.Sorcerer;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 abstract class AbstractBookTest extends AbstractTestItem {
  public Sorcerer sorcerer;
@@ -46,6 +49,10 @@ abstract class AbstractBookTest extends AbstractTestItem {
  @Override
  public IUnit getTestUnit() {
   return sorcerer;
+ }
+ @Test
+ public void isWeaponTest(){
+  assertTrue(getTestItem().isWeapon());
  }
 
 }

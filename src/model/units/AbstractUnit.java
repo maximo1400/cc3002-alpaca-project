@@ -59,6 +59,8 @@ public abstract class AbstractUnit implements IUnit {
 
   @Override
   public void setCurrentHitPoints(int life) {
+    if (life<0)
+      life=0;
      this.currentHitPoints=life;
   }
 
@@ -173,9 +175,9 @@ public abstract class AbstractUnit implements IUnit {
     @Override
   public void attack(IUnit unit){
       if(this.canAttack(unit)) {
-        this.getEquippedItem().AttackUnit(unit.getEquippedItem());
+        this.getEquippedItem().attackUnit(unit.getEquippedItem());
         if (unit.canAttack(this))
-          unit.getEquippedItem().AttackUnit(this.getEquippedItem());
+          unit.getEquippedItem().attackUnit(this.getEquippedItem());
       }
     }
 
@@ -196,4 +198,8 @@ public abstract class AbstractUnit implements IUnit {
     int life =this.getCurrentHitPoints()-(item.getPower()-20);
     this.setCurrentHitPoints(life);
   }
+@Override
+ public void heal(IUnit unit){
+  // Method body intentionally left empty
+}
 }

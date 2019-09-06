@@ -638,5 +638,19 @@ public abstract class AbstractTestUnit implements ITestUnit {
   assertFalse(getTestUnit().getItems().contains(getSword()));
  }
 
+ @Override
+ @Test
+ public void TestHealing(){
+  targetAlpaca.moveTo(getField().getCell(0,0));
+  getTestUnit().moveTo(getField().getCell(0,1));
+  int life=targetAlpaca.getCurrentHitPoints();
+  getTestUnit().heal(targetAlpaca);
+  assertEquals(life,targetAlpaca.getCurrentHitPoints());
+  getTestUnit().addToInventory(staff);
+  getTestUnit().equipItem(staff);
+  getTestUnit().heal(targetAlpaca);
+  assertEquals(life,targetAlpaca.getCurrentHitPoints());
+ }
+
 
 }

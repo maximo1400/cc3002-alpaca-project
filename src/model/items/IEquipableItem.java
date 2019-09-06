@@ -56,7 +56,7 @@ public interface IEquipableItem {
    * Attacks an unit through its equipped item
    * @param item the item equipped by the attacked
    */
-  void AttackUnit(IEquipableItem item);
+  void attackUnit(IEquipableItem item);
 
   /**
    * @return true if the item can attack (only weapons can attack)
@@ -98,4 +98,10 @@ public interface IEquipableItem {
   * @param item the attacking item
   */
   void receiveSwordAttack(IEquipableItem item);
+
+ /**
+  * Heals unit if used by healing item
+  * @param unit Unit to be healed
+  */
+ void useHealing(IUnit unit);
 }

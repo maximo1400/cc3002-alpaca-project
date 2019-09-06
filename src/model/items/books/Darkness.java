@@ -23,7 +23,7 @@ public class Darkness extends AbstractBook {
 
 
     @Override
-    public void AttackUnit(IEquipableItem item) {
+    public void attackUnit(IEquipableItem item) {
         item.receiveDarknessAttack(this);
     }
 

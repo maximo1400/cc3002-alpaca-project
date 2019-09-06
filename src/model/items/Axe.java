@@ -35,7 +35,7 @@ public class Axe extends AbstractItem {
   }
 
   @Override
-  public void AttackUnit(IEquipableItem item) {
+  public void attackUnit(IEquipableItem item) {
     item.receiveAxeAttack(this);
   }
 

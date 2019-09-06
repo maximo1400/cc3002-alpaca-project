@@ -3,6 +3,10 @@ package model.items;
 import model.map.Location;
 import model.units.Fighter;
 import model.units.IUnit;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * Test set for Axes
@@ -57,5 +61,9 @@ class AxeTest extends AbstractTestItem {
   @Override
   public IUnit getTestUnit() {
     return fighter;
+  }
+  @Test
+  public void isWeaponTest(){
+    assertTrue(getTestItem().isWeapon());
   }
 }

@@ -34,7 +34,7 @@ public class Sword extends AbstractItem {
 
 
  @Override
-  public void AttackUnit(IEquipableItem item) {
+  public void attackUnit(IEquipableItem item) {
     item.receiveSwordAttack(this);
   }
 

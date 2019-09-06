@@ -39,7 +39,7 @@ public class Bow extends AbstractItem {
 
 
  @Override
-  public void AttackUnit(IEquipableItem item) {
+  public void attackUnit(IEquipableItem item) {
     item.receiveBowAttack(this);
   }
 

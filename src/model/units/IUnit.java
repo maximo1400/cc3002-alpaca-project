@@ -173,4 +173,10 @@ public interface IUnit {
   * @param item the attacking item
   */
   void receiveWeakAttack(IEquipableItem item);
+
+ /**
+  * Heals if possible target unit
+  * @param unit the unit to be healed
+  */
+ void heal(IUnit unit);
 }

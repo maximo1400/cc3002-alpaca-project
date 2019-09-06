@@ -77,4 +77,8 @@ public class BowTest extends AbstractTestItem {
   public IUnit getTestUnit() {
     return archer;
   }
+  @Test
+  public void isWeaponTest(){
+    assertTrue(getTestItem().isWeapon());
+  }
 }

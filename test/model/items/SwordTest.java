@@ -4,6 +4,9 @@ import model.map.Location;
 import model.units.IUnit;
 import model.units.SwordMaster;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * Test set for swords
@@ -65,5 +68,9 @@ public class SwordTest extends AbstractTestItem {
   @Override
   public IUnit getTestUnit() {
     return swordMaster;
+  }
+  @Test
+  public void isWeaponTest(){
+    assertTrue(getTestItem().isWeapon());
   }
 }
