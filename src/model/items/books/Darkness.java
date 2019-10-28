@@ -5,6 +5,7 @@ import model.items.IEquipableItem;
 /**
  * This class represents a darkness book
  * darkness is strong against Anima and non magic items and weak against Light
+ *
  * @author Maximo Retamal Rojas
  * @since 2.0
  */

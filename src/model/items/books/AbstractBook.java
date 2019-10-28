@@ -2,6 +2,7 @@ package model.items.books;
 
 import model.items.AbstractItem;
 import model.units.IUnit;
+
 /**
  * Abstract class that defines some common information and behaviour between all Books.
  *
@@ -26,5 +27,9 @@ public abstract class AbstractBook extends AbstractItem implements IBook {
         unit.equipBook(this);
     }
 
+    @Override
+    public void getUsed(IUnit target) {
+        this.getOwner().attack(target);
+    }
 
 }

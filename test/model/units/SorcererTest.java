@@ -5,7 +5,7 @@ import model.items.books.Darkness;
 import model.items.books.Light;
 import org.junit.jupiter.api.Test;
 
-class SorcererTest extends  AbstractTestUnit{
+class SorcererTest extends AbstractTestUnit {
     private Sorcerer sorcerer;
 
     /**
@@ -29,51 +29,80 @@ class SorcererTest extends  AbstractTestUnit{
     public void equipAnimaTest() {
         checkEquippedItem(anima);
     }
+
     @Test
     @Override
     public void equipDarknessTest() {
         checkEquippedItem(darkness);
     }
+
     @Test
     @Override
     public void equipLightTest() {
         checkEquippedItem(light);
     }
+
     @Test
     @Override
-    public void checkCombat(){
-        checkStrongWeakCombat(getAnima(), getLight(),getTargetSorcerer());setUp();
-        checkWeakStrongCombat(getAnima(), getDarkness(),getTargetSorcerer());setUp();
-        checkNormalNormalCombat(getAnima(),new Anima("Other Anima",10,1,3),getTargetSorcerer());setUp();
-        checkStrongStrongCombat(getAnima(),getBow(),getTargetArcher());setUp();
-        checkStrongStrongCombat(getAnima(),getAxe(),getTargetFighter());setUp();
-        checkStrongStrongCombat(getAnima(),getSpear(),getTargetHero());setUp();
-        checkStrongStrongCombat(getAnima(),getSword(),getTargetSwordMaster());setUp();
-        checkMagicToClericCombat(getAnima());setUp();
-        checkUnilateralCombat(getAnima(),getTargetAlpaca());setUp();
+    public void checkCombat() {
+        checkStrongWeakCombat(getAnima(), getLight(), getTargetSorcerer());
+        setUp();
+        checkWeakStrongCombat(getAnima(), getDarkness(), getTargetSorcerer());
+        setUp();
+        checkNormalNormalCombat(getAnima(), new Anima("Other Anima", 10, 1, 3), getTargetSorcerer());
+        setUp();
+        checkStrongStrongCombat(getAnima(), getBow(), getTargetArcher());
+        setUp();
+        checkStrongStrongCombat(getAnima(), getAxe(), getTargetFighter());
+        setUp();
+        checkStrongStrongCombat(getAnima(), getSpear(), getTargetHero());
+        setUp();
+        checkStrongStrongCombat(getAnima(), getSword(), getTargetSwordMaster());
+        setUp();
+        checkMagicToClericCombat(getAnima());
+        setUp();
+        checkUnilateralCombat(getAnima(), getTargetAlpaca());
+        setUp();
 
-        checkWeakStrongCombat(getDarkness(), getLight(),getTargetSorcerer());setUp();
-        checkNormalNormalCombat(getDarkness(), new Darkness("Other Darkness",10,1,3),getTargetSorcerer());setUp();
-        checkStrongWeakCombat(getDarkness(),getAnima(),getTargetSorcerer());setUp();
-        checkStrongStrongCombat(getDarkness(),getBow(),getTargetArcher());setUp();
-        checkStrongStrongCombat(getDarkness(),getAxe(),getTargetFighter());setUp();
-        checkStrongStrongCombat(getDarkness(),getSpear(),getTargetHero());setUp();
-        checkStrongStrongCombat(getDarkness(),getSword(),getTargetSwordMaster());setUp();
+        checkWeakStrongCombat(getDarkness(), getLight(), getTargetSorcerer());
+        setUp();
+        checkNormalNormalCombat(getDarkness(), new Darkness("Other Darkness", 10, 1, 3), getTargetSorcerer());
+        setUp();
+        checkStrongWeakCombat(getDarkness(), getAnima(), getTargetSorcerer());
+        setUp();
+        checkStrongStrongCombat(getDarkness(), getBow(), getTargetArcher());
+        setUp();
+        checkStrongStrongCombat(getDarkness(), getAxe(), getTargetFighter());
+        setUp();
+        checkStrongStrongCombat(getDarkness(), getSpear(), getTargetHero());
+        setUp();
+        checkStrongStrongCombat(getDarkness(), getSword(), getTargetSwordMaster());
+        setUp();
 
-        checkMagicToClericCombat(getDarkness());setUp();
-        checkUnilateralCombat(getDarkness(),getTargetAlpaca());setUp();
+        checkMagicToClericCombat(getDarkness());
+        setUp();
+        checkUnilateralCombat(getDarkness(), getTargetAlpaca());
+        setUp();
 
-        checkNormalNormalCombat(getLight(), new Light("Other Light",10,1,3),getTargetSorcerer());setUp();
-        checkStrongWeakCombat(getLight(), getDarkness(),getTargetSorcerer());setUp();
-        checkWeakStrongCombat(getLight(),getAnima(),getTargetSorcerer());setUp();
-        checkStrongStrongCombat(getLight(),getBow(),getTargetArcher());setUp();
-        checkStrongStrongCombat(getLight(),getAxe(),getTargetFighter());setUp();
-        checkStrongStrongCombat(getLight(),getSpear(),getTargetHero());setUp();
-        checkStrongStrongCombat(getLight(),getSword(),getTargetSwordMaster());setUp();
+        checkNormalNormalCombat(getLight(), new Light("Other Light", 10, 1, 3), getTargetSorcerer());
+        setUp();
+        checkStrongWeakCombat(getLight(), getDarkness(), getTargetSorcerer());
+        setUp();
+        checkWeakStrongCombat(getLight(), getAnima(), getTargetSorcerer());
+        setUp();
+        checkStrongStrongCombat(getLight(), getBow(), getTargetArcher());
+        setUp();
+        checkStrongStrongCombat(getLight(), getAxe(), getTargetFighter());
+        setUp();
+        checkStrongStrongCombat(getLight(), getSpear(), getTargetHero());
+        setUp();
+        checkStrongStrongCombat(getLight(), getSword(), getTargetSwordMaster());
+        setUp();
 
-        checkMagicToClericCombat(getLight());setUp();
-        checkUnilateralCombat(getLight(),getTargetAlpaca());setUp();
-
+        checkMagicToClericCombat(getLight());
+        setUp();
+        checkUnilateralCombat(getLight(), getTargetAlpaca());
+        setUp();
 
 
     }

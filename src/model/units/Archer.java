@@ -14,28 +14,24 @@ import model.map.Location;
  */
 public class Archer extends AbstractUnit {
 
-  /**
-   * Creates a new archer
-   *
-   * @param hitPoints
-   *     maximum hit points of the unit
-   * @param movement
-   *     the amount of cells this unit can move
-   * @param position
-   *     the initial position of this unit
-   * @param items
-   *     the items carried by this unit
-   */
-  public Archer(final int hitPoints, final int movement, final Location position,
-       IEquipableItem... items) {
-    super(hitPoints, movement, position, 3, items);
-  }
+    /**
+     * Creates a new archer
+     *
+     * @param hitPoints maximum hit points of the unit
+     * @param movement  the amount of cells this unit can move
+     * @param position  the initial position of this unit
+     * @param items     the items carried by this unit
+     */
+    public Archer(final int hitPoints, final int movement, final Location position,
+                  IEquipableItem... items) {
+        super(hitPoints, movement, position, 3, items);
+    }
 
 
-  @Override
-  public void equipBow(Bow bow) {
-    this.setEquippedItem(bow);
-    bow.setOwner(this);
-  }
+    @Override
+    public void equipBow(Bow bow) {
+        this.setEquippedItem(bow);
+        bow.setOwner(this);
+    }
 
 }

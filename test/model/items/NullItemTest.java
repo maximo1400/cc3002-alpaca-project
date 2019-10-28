@@ -15,10 +15,11 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author Maximo Retamal Rojas
  * @since 2.0
  */
-class NullItemTest extends AbstractTestItem{
+class NullItemTest extends AbstractTestItem {
     private NullItem nullItem;
     private NullItem wrongNullitem;
     private Alpaca alpaca;
+
     /**
      * Sets which item is going to be tested
      */
@@ -43,12 +44,14 @@ class NullItemTest extends AbstractTestItem{
     public void setTestUnit() {
         alpaca = new Alpaca(10, 5, new Location(0, 0));
     }
+
     @Override
     @Test
     public void constructorTest() {
         // Method body intentionally left empty
 
     }
+
     @Override
     @Test
     public void equippedToTest() {
@@ -69,7 +72,7 @@ class NullItemTest extends AbstractTestItem{
     }
 
     @Test
-    public void AttackUnitTest(){
+    public void AttackUnitTest() {
         Field field = new Field();
         field.addCells(true, new Location(0, 0), new Location(0, 1), new Location(0, 2),
                 new Location(1, 0), new Location(1, 1), new Location(1, 2), new Location(2, 0),
@@ -77,17 +80,17 @@ class NullItemTest extends AbstractTestItem{
 
 
         Alpaca targetAlpaca = new Alpaca(50, 2, field.getCell(0, 0));
-        targetAlpaca.moveTo(field.getCell(0,0));
-        getTestUnit().setLocation(field.getCell(0,1));
-        assertTrue(targetAlpaca.getLocation().distanceTo(getTestUnit().getLocation())<=1);
+        targetAlpaca.moveTo(field.getCell(0, 0));
+        getTestUnit().setLocation(field.getCell(0, 1));
+        assertTrue(targetAlpaca.getLocation().distanceTo(getTestUnit().getLocation()) <= 1);
 
-        int life=targetAlpaca.getCurrentHitPoints();
+        int life = targetAlpaca.getCurrentHitPoints();
         getTestUnit().getEquippedItem().attackUnit(targetAlpaca.getEquippedItem());
-        assertEquals(life,targetAlpaca.getCurrentHitPoints());
+        assertEquals(life, targetAlpaca.getCurrentHitPoints());
         getTestUnit().addToInventory(getTestItem());
         getTestUnit().equipItem(getTestItem());
         getTestUnit().getEquippedItem().attackUnit(targetAlpaca.getEquippedItem());
-        assertEquals(life,targetAlpaca.getCurrentHitPoints());
+        assertEquals(life, targetAlpaca.getCurrentHitPoints());
 
     }
 
@@ -98,8 +101,9 @@ class NullItemTest extends AbstractTestItem{
     public IUnit getTestUnit() {
         return alpaca;
     }
+
     @Test
-    public void useHealingTest(){
+    public void useHealingTest() {
 
 
         Field field = new Field();
@@ -109,17 +113,17 @@ class NullItemTest extends AbstractTestItem{
 
 
         Alpaca targetAlpaca = new Alpaca(50, 2, field.getCell(0, 0));
-        targetAlpaca.moveTo(field.getCell(0,0));
-        getTestUnit().setLocation(field.getCell(0,1));
-        assertTrue(targetAlpaca.getLocation().distanceTo(getTestUnit().getLocation())<=1);
+        targetAlpaca.moveTo(field.getCell(0, 0));
+        getTestUnit().setLocation(field.getCell(0, 1));
+        assertTrue(targetAlpaca.getLocation().distanceTo(getTestUnit().getLocation()) <= 1);
 
-        int life=targetAlpaca.getCurrentHitPoints();
+        int life = targetAlpaca.getCurrentHitPoints();
         getTestUnit().getEquippedItem().useHealing(targetAlpaca);
-        assertEquals(life,targetAlpaca.getCurrentHitPoints());
+        assertEquals(life, targetAlpaca.getCurrentHitPoints());
         getTestUnit().addToInventory(getTestItem());
         getTestUnit().equipItem(getTestItem());
         getTestUnit().getEquippedItem().useHealing(targetAlpaca);
-        assertEquals(life,targetAlpaca.getCurrentHitPoints());
+        assertEquals(life, targetAlpaca.getCurrentHitPoints());
 
 
     }

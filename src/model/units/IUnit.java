@@ -1,5 +1,6 @@
 package model.units;
 
+import model.Tactician;
 import model.items.*;
 import model.items.books.IBook;
 import model.map.Location;
@@ -17,166 +18,196 @@ import java.util.List;
  */
 public interface IUnit {
 
-  /**
-   * Sets the currently equipped item of this unit.
-   *
-   * @param item
-   *     the item to equip
-   */
-  void setEquippedItem(IEquipableItem item);
+    /**
+     * Sets the currently equipped item of this unit.
+     *
+     * @param item the item to equip
+     */
+    void setEquippedItem(IEquipableItem item);
 
 
+    /**
+     * @return hit points of the unit
+     */
+    int getCurrentHitPoints();
 
-  /**
-   * @return hit points of the unit
-   */
-  int getCurrentHitPoints();
+    int getHitPoints();
 
- /**
-  * @param life Life to be set as currentHitPoints to unit
-  */
-  void setCurrentHitPoints(int life);
+    /**
+     * @param life Life to be set as currentHitPoints to unit
+     */
+    void setCurrentHitPoints(int life);
 
-  /**
-   * @return the items carried by this unit
-   */
-  List<IEquipableItem> getItems();
+    /**
+     * @return the items carried by this unit
+     */
+    List<IEquipableItem> getItems();
 
- /**
-   * @return the currently equipped item
-   */
-  IEquipableItem getEquippedItem();
+    Tactician getTactician();
 
-
-  /**
-   * @return the current location of the unit
-   */
-  Location getLocation();
-
-  /**
-   * Sets a new location for this unit,
-   */
-  void setLocation(final Location location);
-
-  /**
-   * @return the number of cells this unit can move
-   */
-  int getMovement();
-
-  /**
-   * Moves this unit to another location.
-   * <p>
-   * If the other location is out of this unit's movement range, the unit doesn't move.
-   */
-  void moveTo(Location targetLocation);
+    /**
+     * @return the currently equipped item
+     */
+    IEquipableItem getEquippedItem();
 
 
- /**
-  * attacks an unit
-  * @param unit unit to be attacked
-  */
-  void attack(IUnit unit);
+    /**
+     * @return the current location of the unit
+     */
+    Location getLocation();
 
- /**
-  * checks if the attack checks the requirements
-  * @param unit unit to be attacked
-  * @return true if the attack can happen false if not
-  */
-  boolean canAttack(IUnit unit);
+    /**
+     * Sets a new location for this unit,
+     */
+    void setLocation(final Location location);
 
- /**
-  * checks if 2 units can exchange items
-  * @param unit unit to exchange item
-  * @return true if they can
-  */
-  boolean canExchange(IUnit unit);
+    /**
+     * @return the number of cells this unit can move
+     */
+    int getMovement();
 
- /**
-  * tries to exchange an item
-  * @param item item to be exchanged
-  * @param unit unit that receives item
-  */
-  void exchange(IEquipableItem item, IUnit unit);
+    /**
+     * Moves this unit to another location.
+     * <p>
+     * If the other location is out of this unit's movement range, the unit doesn't move.
+     */
+    void moveTo(Location targetLocation);
 
- /**
-  * removes item from inventory (but doesn't check if it's equioped)=
-  * @param item item to be removed
-  */
-  void removeFromInventory(IEquipableItem item);
 
- /**
-  * adds item to inventory
-  * @param item item to be added
-  */
- void addToInventory(IEquipableItem item);
+    /**
+     * attacks an unit
+     *
+     * @param unit unit to be attacked
+     */
+    void attack(IUnit unit);
 
- /**
-  * starts process to equip item
-  * @param item the item to be equipped
-  */
- void equipItem(IEquipableItem item);
+    /**
+     * checks if the attack checks the requirements
+     *
+     * @param unit unit to be attacked
+     * @return true if the attack can happen false if not
+     */
+    boolean canAttack(IUnit unit);
 
- /**
-  * tries to equip spear
-  * @param spear the spear to be equipped
-  */
-  void equipSpear(Spear spear);
+    /**
+     * checks if 2 units can exchange items
+     *
+     * @param unit unit to exchange item
+     * @return true if they can
+     */
+    boolean canExchange(IUnit unit);
 
- /**
-  * tries to equip sword
-  * @param sword the sword to be equipped
-  */
-  void equipSword(Sword sword);
+    /**
+     * tries to exchange an item
+     *
+     * @param item item to be exchanged
+     * @param unit unit that receives item
+     */
+    void exchange(IEquipableItem item, IUnit unit);
 
- /**
-  * tries to equip book
-  * @param book the book to be equipped
-  */
-  void equipBook(IBook book);
+    /**
+     * removes item from inventory (but doesn't check if it's equioped)=
+     *
+     * @param item item to be removed
+     */
+    void removeFromInventory(IEquipableItem item);
 
- /**
-  * tries to equip axe
-  * @param axe the axe to be equipped
-  */
-  void equipAxe(Axe axe);
+    /**
+     * adds item to inventory
+     *
+     * @param item item to be added
+     */
+    void addToInventory(IEquipableItem item);
 
- /**
-  * tries to equip bow
-  * @param bow the bow to be equipped
-  */
-  void equipBow(Bow bow);
+    /**
+     * starts process to equip item
+     *
+     * @param item the item to be equipped
+     */
+    void equipItem(IEquipableItem item);
 
- /**
-  * tries to equip staff
-  * @param staff the staff to be equipped
-  */
-  void equipStaff(Staff staff);
+    /**
+     * tries to equip spear
+     *
+     * @param spear the spear to be equipped
+     */
+    void equipSpear(Spear spear);
 
- /**
-  * checks if unit can receive item
-  * @return true if unit can receive item
-  */
-  boolean canReceiveItem();
+    /**
+     * tries to equip sword
+     *
+     * @param sword the sword to be equipped
+     */
+    void equipSword(Sword sword);
 
- /**
-  * takes 1.5 times the power of the item to the life of the unit
-  * @param item the attacking item
-  */
-  void receiveStrongAttack(IEquipableItem item);
- /**
-  * takes the power of the item to the life of the unit
-  * @param item the attacking item
-  */
-  void receiveNormalAttack(IEquipableItem item);
- /**
-  * takes  the power of the item -20 to the life of the unit
-  * @param item the attacking item
-  */
-  void receiveWeakAttack(IEquipableItem item);
+    /**
+     * tries to equip book
+     *
+     * @param book the book to be equipped
+     */
+    void equipBook(IBook book);
 
- /**
-  * Heals if possible target unit
-  * @param unit the unit to be healed
-  */
- void heal(IUnit unit);
+    /**
+     * tries to equip axe
+     *
+     * @param axe the axe to be equipped
+     */
+    void equipAxe(Axe axe);
+
+    /**
+     * tries to equip bow
+     *
+     * @param bow the bow to be equipped
+     */
+    void equipBow(Bow bow);
+
+    /**
+     * tries to equip staff
+     *
+     * @param staff the staff to be equipped
+     */
+    void equipStaff(Staff staff);
+
+    /**
+     * checks if unit can receive item
+     *
+     * @return true if unit can receive item
+     */
+    boolean canReceiveItem();
+
+    /**
+     * takes 1.5 times the power of the item to the life of the unit
+     *
+     * @param item the attacking item
+     */
+    void receiveStrongAttack(IEquipableItem item);
+
+    /**
+     * takes the power of the item to the life of the unit
+     *
+     * @param item the attacking item
+     */
+    void receiveNormalAttack(IEquipableItem item);
+
+    /**
+     * takes  the power of the item -20 to the life of the unit
+     *
+     * @param item the attacking item
+     */
+    void receiveWeakAttack(IEquipableItem item);
+
+    /**
+     * Heals if possible target unit
+     *
+     * @param unit the unit to be healed
+     */
+    void heal(IUnit unit);
+
+    void setTactician(Tactician player);
+
+    void setSelectedItem(IEquipableItem item);
+
+    IEquipableItem getSelectedItem();
+
+    void useItem(IUnit target);
 }

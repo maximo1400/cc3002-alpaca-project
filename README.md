@@ -77,3 +77,8 @@ Two units next to each other if they are next to each other in the map and the r
 (this limit does not apply to the alpaca)
 
 
+## Tactician
+
+The tactician represents the player and its job is to manage the instructions of the user and delegate the messages to 
+the objects according to their responsibilities this 
+

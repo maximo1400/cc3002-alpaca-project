@@ -6,13 +6,12 @@ import model.map.Location;
 
 /**
  * This class represents a Sorcerer type unit.
- *  * A sorcerer is a unit that can only use book type weapons.
- *  *
- *  * @author Maximo Retamal Rojas
- *  * @since 2.0
- *
+ * * A sorcerer is a unit that can only use book type weapons.
+ * *
+ * * @author Maximo Retamal Rojas
+ * * @since 2.0
  */
-public class Sorcerer extends AbstractUnit{
+public class Sorcerer extends AbstractUnit {
     /**
      * Creates a new Sorcerer.
      *

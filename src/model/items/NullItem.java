@@ -57,4 +57,8 @@ public class NullItem extends AbstractItem {
         this.getOwner().receiveNormalAttack(item);
     }
 
+    @Override
+    public void getUsed(IUnit target) {
+        // does nothing
+    }
 }

@@ -14,35 +14,32 @@ import model.map.Location;
  */
 public class Alpaca extends AbstractUnit {
 
-  /**
-   * Creates a new Alpaca.
-   *
-   * @param hitPoints
-   *     the amount of damage this unit can receive
-   * @param movement
-   *     number of cells the unit can move
-   * @param location
-   *     current position of the unit
-   */
-  public Alpaca(final int hitPoints, final int movement, final Location location,
-       IEquipableItem... items) {
-    super(hitPoints, movement, location, Integer.MAX_VALUE, items);
-  }
+    /**
+     * Creates a new Alpaca.
+     *
+     * @param hitPoints the amount of damage this unit can receive
+     * @param movement  number of cells the unit can move
+     * @param location  current position of the unit
+     */
+    public Alpaca(final int hitPoints, final int movement, final Location location,
+                  IEquipableItem... items) {
+        super(hitPoints, movement, location, Integer.MAX_VALUE, items);
+    }
 
-  /**
-   * {@inheritDoc}
-   * <p>
-   * The <i>Alpaca</i> cannot equip any item.
-   */
+    /**
+     * {@inheritDoc}
+     * <p>
+     * The <i>Alpaca</i> cannot equip any item.
+     */
 
-  @Override
-  public boolean canAttack(IUnit unit) {
-    return false;
-  }
+    @Override
+    public boolean canAttack(IUnit unit) {
+        return false;
+    }
 
-  @Override
-  public boolean canReceiveItem() {
-    return true;
-  }
+    @Override
+    public boolean canReceiveItem() {
+        return true;
+    }
 
 }

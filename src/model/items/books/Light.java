@@ -1,9 +1,11 @@
 package model.items.books;
 
 import model.items.IEquipableItem;
+
 /**
  * This class represents a Light book
  * Light is strong against Darkness and non magic items and weak against Anima
+ *
  * @author Maximo Retamal Rojas
  * @since 2.0
  */
