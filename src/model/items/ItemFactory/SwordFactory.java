@@ -2,7 +2,12 @@ package model.items.ItemFactory;
 
 import model.items.IEquipableItem;
 import model.items.Sword;
-
+/**
+ *  class for the Sword item creation
+ *  * @author Maximo Retamal
+ *  * @version 1.0
+ *  * @since 2.1
+ */
 public class SwordFactory extends AbstractFactory {
     private String name;
     private int power;

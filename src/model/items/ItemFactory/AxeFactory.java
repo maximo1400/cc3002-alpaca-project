@@ -2,7 +2,12 @@ package model.items.ItemFactory;
 
 import model.items.Axe;
 import model.items.IEquipableItem;
-
+/**
+ *  class for the Axe item creation
+ *  * @author Maximo Retamal
+ *  * @version 1.0
+ *  * @since 2.1
+ */
 public class AxeFactory extends AbstractFactory {
     private String name;
     private int power;

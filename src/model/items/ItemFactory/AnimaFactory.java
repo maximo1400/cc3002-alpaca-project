@@ -3,6 +3,12 @@ package model.items.ItemFactory;
 import model.items.IEquipableItem;
 import model.items.books.Anima;
 
+/**
+ *  class for the Anima item creation
+ *  * @author Maximo Retamal
+ *  * @version 1.0
+ *  * @since 2.1
+ */
 public class AnimaFactory extends AbstractFactory {
     private String name;
     private int power;

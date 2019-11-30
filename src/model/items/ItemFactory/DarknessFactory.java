@@ -2,7 +2,12 @@ package model.items.ItemFactory;
 
 import model.items.IEquipableItem;
 import model.items.books.Darkness;
-
+/**
+ *  class for the Darkness item creation
+ *  * @author Maximo Retamal
+ *  * @version 1.0
+ *  * @since 2.1
+ */
 public class DarknessFactory extends AbstractFactory {
     private String name;
     private int power;

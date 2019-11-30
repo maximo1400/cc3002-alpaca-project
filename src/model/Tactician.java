@@ -11,6 +11,12 @@ import java.util.List;
 
 import static java.lang.Math.max;
 
+/**
+ * Class representing the player of the game
+ * @author Maximo Retamal
+ * @version 1.0
+ * @since 2.0
+ */
 public class Tactician {
     private String name;
     private List<IUnit> units;
@@ -26,6 +32,11 @@ public class Tactician {
         this.selectedUnit = null;
     }
 
+    /**
+     * returns units info as string
+     * @param unit unit to read
+     * @return the info
+     */
     public String unitToString(IUnit unit) {
         StringBuilder string = new StringBuilder();
         List<IEquipableItem> items = unit.getItems();
@@ -44,17 +55,32 @@ public class Tactician {
         return string.toString();
     }
 
+    /**
+     * equip an item to a unit
+     * @param unit unit to equip item
+     * @param item item to equip
+     */
     public void setEquippedItem(IUnit unit, IEquipableItem item) {
         unit.equipItem(item);
 
     }
 
+    /**
+     * makes selected unit use equipped item to target unit
+     * @param target the target unit
+     */
     public void useItem(IUnit target) {
         selectedUnit.attack(target);
         selectedUnit.heal(target);
 
     }
 
+    /**
+     *
+     * @param giver
+     * @param receiver
+     * @param item
+     */
     public void exchangeItem(IUnit giver, IUnit receiver, IEquipableItem item) {
         giver.exchange(item, receiver);
     }

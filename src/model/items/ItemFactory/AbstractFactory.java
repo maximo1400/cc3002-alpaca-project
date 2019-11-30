@@ -4,6 +4,12 @@ import model.items.AbstractItem;
 import model.items.IEquipableItem;
 import model.units.IUnit;
 
+/**
+ * Abstract class for the item creation
+ * @author Maximo Retamal
+ * @version 1.0
+ * @since 2.1
+ */
 public abstract class AbstractFactory implements ItemFactory {
     private String name;
     private int power;
