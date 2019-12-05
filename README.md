@@ -80,5 +80,15 @@ Two units next to each other if they are next to each other in the map and the r
 ## Tactician
 
 The tactician represents the player and its job is to manage the instructions of the user and delegate the messages to 
-the objects according to their responsibilities this 
+the objects according to their responsibilities. This is to make sure the player doesn't interact directly with the 
+game model.
+
+The Tactician is able to use all methods written for the first part of the project, it also knows all it's units, their 
+ info and the map.
+
+## Controller
+
+The controller handles all the inputs from the user,  the the game, that means creating the map, the tacticians, 
+
+## Unit and Item Factories
 

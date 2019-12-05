@@ -76,10 +76,10 @@ public class Tactician {
     }
 
     /**
-     *
-     * @param giver
-     * @param receiver
-     * @param item
+     * Exchanges item between 2 units
+     * @param giver unit giving the item
+     * @param receiver unit receiving
+     * @param item the item being exchange
      */
     public void exchangeItem(IUnit giver, IUnit receiver, IEquipableItem item) {
         giver.exchange(item, receiver);
@@ -89,6 +89,11 @@ public class Tactician {
         return name;
     }
 
+    /**
+     * removes a unit from the  game
+     *
+     * @param unit being deleted
+     */
     public void deleteDeadUnit(IUnit unit) {
         units.remove(unit);
     }
@@ -106,6 +111,9 @@ public class Tactician {
         return selectedUnit;
     }
 
+    /**
+     * @param army adds units to the tactician
+     */
     public void addUnits(IUnit... army) {
         this.units.addAll(Arrays.asList(army).subList(0, max(0, army.length)));
         for (IUnit units : units) {

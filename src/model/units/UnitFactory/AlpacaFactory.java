@@ -19,7 +19,7 @@ public class AlpacaFactory extends AbstractUnitFactory{
     private Tactician tactician;
     private IEquipableItem selectedItem;
     /**
-     * Creates a new Unit.
+     * Creates a new alpaca.
      *
      * @param hitPoints the maximum amount of damage a unit can sustain
      * @param movement  the number of panels a unit can move
