@@ -85,10 +85,14 @@ game model.
 
 The Tactician is able to use all methods written for the first part of the project, it also knows all it's units, their 
  info and the map.
+ 
+ To communicate with the controller it uses observer pattern (work in progress).
 
 ## Controller
 
-The controller handles all the inputs from the user,  the the game, that means creating the map, the tacticians, 
+The controller handles all the inputs from the user, it also handles the game, that means creating the map, the tacticians,
+the turns and it controls the set of rules with which the tacticians interact with each other. 
 
 ## Unit and Item Factories
 
+This part uses Factory pattern to set factories of each unit and item currently in game.
